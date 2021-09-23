@@ -71,15 +71,19 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 
 	case 'x':
 		interfaz.escena.setCajasX(interfaz.escena.getCajasX() + 1);
+		interfaz.escena.setPulsaX(true);
 		break;
 	case 'X':
 		interfaz.escena.setCajasX(interfaz.escena.getCajasX() - 1);
+		interfaz.escena.setPulsaX(true);
 		break;
 	case 'z':
 		interfaz.escena.setCajasZ(interfaz.escena.getCajasZ() + 1);
+		interfaz.escena.setPulsaZ(true);
 		break;
 	case 'Z':
 		interfaz.escena.setCajasZ(interfaz.escena.getCajasZ() - 1);
+		interfaz.escena.setPulsaZ(true);
 		break;
 	}
 	glutPostRedisplay(); // renueva el contenido de la ventana de vision

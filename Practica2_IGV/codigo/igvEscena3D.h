@@ -20,9 +20,13 @@ class igvEscena3D {
 		const char* Nombre_EscenaC = "Escena C";
 
 	private:
-		int cajasY;
-		int cajasX;
-		int cajasZ;
+		int cajasY; //contador de cuantas cajas hay de altura en el eje Y
+		int cajasX; //contador de cuantas cajas hay de anchura en el eje X
+		int cajasZ; //contador de cuantas cajas hay de profundidad en el eje Z
+		bool pulsaX;//variable de control, para saber que tecla se tocó
+		bool pulsaZ; //variable de control, para saber que tecla se tocó
+	    float separacionEjeX; //valor de la separacion de las cajas en el eje X
+		float separacionEjeZ; //valor de la separacion de las cajas en el eje Z
 
 	protected:
 		// Atributos
@@ -66,6 +70,14 @@ class igvEscena3D {
 
 		void setCajasZ(int valor) {
 			cajasZ = valor;
+		}
+
+		void setPulsaX(bool valor) {
+			pulsaX = valor;
+		}
+		
+		void setPulsaZ(bool valor) {
+			pulsaZ = valor;
 		}
 
     protected:

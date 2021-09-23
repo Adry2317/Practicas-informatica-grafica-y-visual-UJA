@@ -10,7 +10,8 @@ igvEscena3D::igvEscena3D() {
 	cajasY = 1;
 	cajasX = 0;
 	cajasZ = 0;
-
+	separacionEjeX = 1.5;
+	separacionEjeZ = 2.5;
 }
 
 igvEscena3D::~igvEscena3D() {}
@@ -20,9 +21,6 @@ igvEscena3D::~igvEscena3D() {}
 
 void igvEscena3D::creaCaja(GLfloat* color_pieza,float numCajasX, float numCajasY,float numCajasZ) {
 
-	if (numCajasY == 0.0) {
-		numCajasY = 1.0;
-	}
 	
 	
 	glMaterialfv(GL_FRONT, GL_EMISSION, color_pieza);
@@ -115,37 +113,50 @@ void igvEscena3D::renderEscenaC() {
 
 	// Practica 2a. Parte C.
 	
-	
-	
-
-	
-
-
-	for (int i = 0; i < cajasY; i++) {
-		for (int j = 0; j < cajasX; j++) {
-			
-
-			
-			for (int k = 0; k < cajasZ; k++) {
-				creaCaja(color_pieza, (j * 1.5) + 1.5, i + 1, (k * 2.5) + 2.5);
-			}
-			creaCaja(color_pieza, (j * 1.5) + 1.5, i + 1, 0);
-		}
-		
+	//Siempre creamos una primera caja centrada en los ejes x,y,z
+	for (int i = 0; i < cajasY; i++)
+	{
 		creaCaja(color_pieza, 0, i + 1, 0);
-		
+	}
+
+	
+
+	//Si pulsamos primero la tecla X este corresponde al segundo bucle,
+	//asegurando que siempre que aumenten a la par 
+	if (pulsaX) {
+		for (int i = 0; i < cajasY; i++) {
+
+			for (int j = 0; j < cajasX; j++) {
+
+				for (int k = 0; k < cajasZ; k++) {
+					creaCaja(color_pieza, 0, i + 1, (k * separacionEjeZ) + separacionEjeZ);
+				}
+
+				creaCaja(color_pieza, (j * separacionEjeX) + separacionEjeX, i + 1, 0);
+			}
+		}
 	}
 
 
-	/*for (int i = 0; i < cajasZ; i++) {
-		for (int j = 0; j < cajasY; j++) {
-			for (int k = 0; k < cajasX; k++) {
-				creaCaja(color_pieza, (k * 1.5) + 1.5, j + 1, (i * 2.5) + 2.5);
+	//Si pulsamos primero la tecla 'Y' este corresponde al segundo bucle,
+	//asegurando que siempre que aumenten a la par 
+	if (pulsaZ) {
+		for (int i = 0; i < cajasY; i++) {
+
+			for (int k = 0; k < cajasZ; k++) {
+
+				for (int j = 0; j < cajasX; j++) {
+					creaCaja(color_pieza, (j * separacionEjeX) + separacionEjeX, i + 1, (k * separacionEjeZ) + separacionEjeZ);
+				}
+
+				creaCaja(color_pieza, 0, i + 1, (k * separacionEjeZ) + separacionEjeZ);
 			}
-
 		}
-	}*/
+	}
+	
 
+
+	
 	
 
 }
