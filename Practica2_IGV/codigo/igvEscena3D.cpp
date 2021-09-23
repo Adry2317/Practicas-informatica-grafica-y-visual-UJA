@@ -18,14 +18,18 @@ igvEscena3D::~igvEscena3D() {}
 
 // Metodos publicos ----------------------------------------
 
-void igvEscena3D::creaCaja(GLfloat* color_pieza,int numCajasX, int numCajasY,int numCajasZ) {
+void igvEscena3D::creaCaja(GLfloat* color_pieza,float numCajasX, float numCajasY,float numCajasZ) {
 
+	if (numCajasY == 0.0) {
+		numCajasY = 1.0;
+	}
+	
 	
 	glMaterialfv(GL_FRONT, GL_EMISSION, color_pieza);
 
 	//Tapa
 	glPushMatrix();
-	glTranslatef(0.0f, 0.375f+numCajasY-1, 0.0f);
+	glTranslatef(numCajasX, 0.375f+numCajasY-1.0, numCajasZ);
 	glScalef(1.2f, 0.25f, 2.2f);
 	glutSolidCube(1);
 	glPopMatrix();
@@ -33,7 +37,11 @@ void igvEscena3D::creaCaja(GLfloat* color_pieza,int numCajasX, int numCajasY,int
 
 	//Cuerpo
 	glPushMatrix();
-	glTranslatef(0.0f,numCajasY-1,0.0f);
+	
+		glTranslatef(numCajasX, numCajasY - 1.0, numCajasZ);
+	
+	
+	
 	glScalef(1.0f, 1.0f, 2.0f);
 	glutSolidCube(1);
 	glPopMatrix();
@@ -106,13 +114,40 @@ void igvEscena3D::renderEscenaC() {
 	GLfloat color_pieza[] = { 0.5,0,0 };
 
 	// Practica 2a. Parte C.
-	for (int i = 0; i < cajasY; i++){
-		creaCaja(color_pieza, 0,i + 1,0);
+	
+	
+	
+
+	
+
+
+	for (int i = 0; i < cajasY; i++) {
 		for (int j = 0; j < cajasX; j++) {
-			creaCaja(color_pieza, j + 1,0,0);
 			
+
+			
+			for (int k = 0; k < cajasZ; k++) {
+				creaCaja(color_pieza, (j * 1.5) + 1.5, i + 1, (k * 2.5) + 2.5);
+			}
+			creaCaja(color_pieza, (j * 1.5) + 1.5, i + 1, 0);
 		}
+		
+		creaCaja(color_pieza, 0, i + 1, 0);
+		
 	}
+
+
+	/*for (int i = 0; i < cajasZ; i++) {
+		for (int j = 0; j < cajasY; j++) {
+			for (int k = 0; k < cajasX; k++) {
+				creaCaja(color_pieza, (k * 1.5) + 1.5, j + 1, (i * 2.5) + 2.5);
+			}
+
+		}
+	}*/
+
+	
+
 }
 
 

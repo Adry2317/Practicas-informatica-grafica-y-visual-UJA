@@ -1,3 +1,11 @@
 ﻿  igvEscena3D.cpp
-C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\codigo\igvEscena3D.cpp(36,29): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-  Practica2_IGV.vcxproj -> C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\Debug\Practica2_IGV.exe
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\codigo\igvEscena3D.cpp(32,42): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\codigo\igvEscena3D.cpp(41,37): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\codigo\igvEscena3D.cpp(108,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\codigo\igvEscena3D.cpp(130,61): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\codigo\igvEscena3D.cpp(130,46): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\codigo\igvEscena3D.cpp(130,37): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\codigo\igvEscena3D.cpp(132,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\codigo\igvEscena3D.cpp(132,36): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\codigo\igvEscena3D.cpp(135,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Practica2_IGV.vcxproj -> C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2_IGV\Debug\Practica2_IGV.exe

@@ -36,7 +36,7 @@ class igvEscena3D {
 		~igvEscena3D();
 
 		// Métodos
-		void creaCaja(GLfloat* color_pieza, int numCajasX, int numCajasY, int numCajasZ);
+		void creaCaja(GLfloat* color_pieza, float numCajasX, float numCajasY, float numCajasZ);
 
 		// método con las llamadas OpenGL para visualizar la escena
         void visualizar(int escena);
