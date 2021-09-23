@@ -62,6 +62,25 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 	case 27: // tecla de escape para SALIR
 		exit(1);
 		break;
+	case 'y':
+		interfaz.escena.setCajasY(interfaz.escena.getCajasY() + 1);
+		break;
+	case 'Y':
+		interfaz.escena.setCajasY(interfaz.escena.getCajasY() - 1);
+		break;
+
+	case 'x':
+		interfaz.escena.setCajasX(interfaz.escena.getCajasX() + 1);
+		break;
+	case 'X':
+		interfaz.escena.setCajasX(interfaz.escena.getCajasX() - 1);
+		break;
+	case 'z':
+		interfaz.escena.setCajasZ(interfaz.escena.getCajasZ() + 1);
+		break;
+	case 'Z':
+		interfaz.escena.setCajasZ(interfaz.escena.getCajasZ() - 1);
+		break;
 	}
 	glutPostRedisplay(); // renueva el contenido de la ventana de vision
 }

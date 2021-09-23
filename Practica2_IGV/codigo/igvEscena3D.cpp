@@ -5,12 +5,39 @@
 
 // Metodos constructores -----------------------------------
 
-igvEscena3D::igvEscena3D() { ejes = true; }
+igvEscena3D::igvEscena3D() { 
+	ejes = true;
+	cajasY = 1;
+	cajasX = 0;
+	cajasZ = 0;
+
+}
 
 igvEscena3D::~igvEscena3D() {}
 
 
 // Metodos publicos ----------------------------------------
+
+void igvEscena3D::creaCaja(GLfloat* color_pieza,int numCajasX, int numCajasY,int numCajasZ) {
+
+	
+	glMaterialfv(GL_FRONT, GL_EMISSION, color_pieza);
+
+	//Tapa
+	glPushMatrix();
+	glTranslatef(0.0f, 0.375f+numCajasY-1, 0.0f);
+	glScalef(1.2f, 0.25f, 2.2f);
+	glutSolidCube(1);
+	glPopMatrix();
+
+
+	//Cuerpo
+	glPushMatrix();
+	glTranslatef(0.0f,numCajasY-1,0.0f);
+	glScalef(1.0f, 1.0f, 2.0f);
+	glutSolidCube(1);
+	glPopMatrix();
+}
 
 void pintar_ejes(void) {
 	GLfloat rojo[] = { 1,0,0,1.0 };
@@ -59,25 +86,19 @@ void igvEscena3D::visualizar(int escena) {
 }
 
 void igvEscena3D::renderEscenaA() {
-	GLfloat color_pieza[] = { 0,0.25,0 };
-
 	// Practica 2a. Parte A.
-	glMaterialfv(GL_FRONT, GL_EMISSION, color_pieza);
-
-	glPushMatrix();
-	glutSolidCube(1);
-	glPopMatrix();
+	GLfloat color_pieza[] = { 0,0.25,0 };
+	creaCaja(color_pieza,0,1,0);
+	
 }
 
 void igvEscena3D::renderEscenaB() {
 	GLfloat color_pieza[] = { 0,0,0.5 };
 
 	// Practica 2a. Parte B.
-	glMaterialfv(GL_FRONT, GL_EMISSION, color_pieza);
-
-	glPushMatrix();
-	glutSolidCube(1);
-	glPopMatrix();
+	for (int i = 0; i < cajasY; i++){
+		creaCaja(color_pieza,0,i+1,0);
+	}
 }
 
 
@@ -85,11 +106,13 @@ void igvEscena3D::renderEscenaC() {
 	GLfloat color_pieza[] = { 0.5,0,0 };
 
 	// Practica 2a. Parte C.
-	glMaterialfv(GL_FRONT, GL_EMISSION, color_pieza);
-
-	glPushMatrix();
-	glutSolidCube(1);
-	glPopMatrix();
+	for (int i = 0; i < cajasY; i++){
+		creaCaja(color_pieza, 0,i + 1,0);
+		for (int j = 0; j < cajasX; j++) {
+			creaCaja(color_pieza, j + 1,0,0);
+			
+		}
+	}
 }
 
 

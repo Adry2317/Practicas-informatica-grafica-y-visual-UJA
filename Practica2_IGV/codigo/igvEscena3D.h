@@ -19,6 +19,11 @@ class igvEscena3D {
 		const char *Nombre_EscenaB = "Escena B";
 		const char* Nombre_EscenaC = "Escena C";
 
+	private:
+		int cajasY;
+		int cajasX;
+		int cajasZ;
+
 	protected:
 		// Atributos
 		bool ejes;
@@ -31,11 +36,37 @@ class igvEscena3D {
 		~igvEscena3D();
 
 		// Métodos
+		void creaCaja(GLfloat* color_pieza, int numCajasX, int numCajasY, int numCajasZ);
+
 		// método con las llamadas OpenGL para visualizar la escena
         void visualizar(int escena);
 
 		bool get_ejes() {return ejes;};
 		void set_ejes(bool _ejes){ejes = _ejes;};
+
+		int getCajasY() {
+			return cajasY;
+		}
+
+		void setCajasY(int valor) {
+			cajasY = valor;
+		}
+
+		int getCajasX() {
+			return cajasX;
+		}
+
+		void setCajasX(int valor) {
+			cajasX = valor;
+		}
+
+		int getCajasZ() {
+			return cajasZ;
+		}
+
+		void setCajasZ(int valor) {
+			cajasZ = valor;
+		}
 
     protected:
         void renderEscenaA();
