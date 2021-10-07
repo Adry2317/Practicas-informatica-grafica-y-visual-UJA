@@ -17,6 +17,13 @@ typedef enum {
 	IGV_PERSPECTIVA
 } tipoCamara;
 
+enum tipoVista {
+	NORMAL,
+	PLANTA,
+	PERFIL,
+	ALZADO
+};
+
 class igvCamara {
 
 public:
@@ -41,6 +48,9 @@ public:
 
 	// vector arriba
 	igvPunto3D V;
+
+	// Tipo de vista
+	tipoVista vista;
 
 	// Metodos
 

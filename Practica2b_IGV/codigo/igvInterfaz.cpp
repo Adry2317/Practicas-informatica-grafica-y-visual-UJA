@@ -20,6 +20,28 @@ void igvInterfaz::crear_mundo(void) {
 	r = igvPunto3D(0, 0, 0);
 	V = igvPunto3D(0, 1.0, 0);
 
+	//Vista Normal
+	p0Vistas.push_back(p0);
+	rVistas.push_back(r);
+	Vvistas.push_back(V);
+
+	//Vista Planta
+	p0Vistas.push_back(igvPunto3D(0,-5,0));
+	rVistas.push_back(igvPunto3D(0,0,0));
+	Vvistas.push_back(igvPunto3D(1.0,0,0));
+
+	//Vista Perfil
+	p0Vistas.push_back(igvPunto3D(5, 0, 0));
+	rVistas.push_back(igvPunto3D(0, 0, 0));
+	Vvistas.push_back(igvPunto3D(0, 1.0, 0));
+
+	//Vista Alzado
+	p0Vistas.push_back(igvPunto3D(0, 0, 5));
+	rVistas.push_back(igvPunto3D(0, 0, 0));
+	Vvistas.push_back(igvPunto3D(0, 1.0, 0));
+
+	
+
 	interfaz.camara.set(IGV_PARALELA, p0, r, V,
 		-1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
 
@@ -64,15 +86,70 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 	switch (key) {
 	case 'p': // cambia el tipo de proyección de paralela a perspectiva y viceversa
 		
+		if (interfaz.camara.tipo == IGV_PARALELA) {
+			interfaz.camara.set(IGV_PERSPECTIVA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista],-1*3,1*3,-1*3,1*3,1,200);
+		}
+		else {
+			interfaz.camara.set(IGV_PARALELA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+		}
+
+		interfaz.camara.aplicar();
 		break;
 	case 'P': // cambia el tipo de proyección de paralela a perspectiva y viceversa
-		
+		if (interfaz.camara.tipo == IGV_PARALELA) {
+			interfaz.camara.set(IGV_PERSPECTIVA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+		}
+		else {
+			interfaz.camara.set(IGV_PARALELA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+		}
+
+		interfaz.camara.aplicar();
 		break;
 	case 'v': // cambia la posición de la cámara para mostrar las vistas planta, perfil, alzado o perspectiva
-
+		switch (interfaz.camara.vista)
+		{
+		case NORMAL:
+			interfaz.camara.set(interfaz.p0Vistas[PLANTA], interfaz.rVistas[PLANTA], interfaz.Vvistas[PLANTA]);
+			interfaz.camara.vista = PLANTA;
+			break;
+		case PLANTA:
+			interfaz.camara.set(interfaz.p0Vistas[PERFIL], interfaz.rVistas[PERFIL], interfaz.Vvistas[PERFIL]);
+			interfaz.camara.vista = PERFIL;
+			break;
+		case PERFIL:
+			interfaz.camara.set(interfaz.p0Vistas[ALZADO], interfaz.rVistas[ALZADO], interfaz.Vvistas[ALZADO]);
+			interfaz.camara.vista = ALZADO;
+			break;
+		case ALZADO:
+			interfaz.camara.set(interfaz.p0Vistas[NORMAL], interfaz.rVistas[NORMAL], interfaz.Vvistas[NORMAL]);
+			interfaz.camara.vista = NORMAL;
+			break;
+		}
+		
+		interfaz.camara.aplicar();
 		break;
 	case 'V': // cambia la posición de la cámara para mostrar las vistas planta, perfil, alzado o perspectiva
+		switch (interfaz.camara.vista)
+		{
+		case NORMAL:
+			interfaz.camara.set(interfaz.p0Vistas[PLANTA], interfaz.rVistas[PLANTA], interfaz.Vvistas[PLANTA]);
+			interfaz.camara.vista = PLANTA;
+			break;
+		case PLANTA:
+			interfaz.camara.set(interfaz.p0Vistas[PERFIL], interfaz.rVistas[PERFIL], interfaz.Vvistas[PERFIL]);
+			interfaz.camara.vista = PERFIL;
+			break;
+		case PERFIL:
+			interfaz.camara.set(interfaz.p0Vistas[ALZADO], interfaz.rVistas[ALZADO], interfaz.Vvistas[ALZADO]);
+			interfaz.camara.vista = ALZADO;
+			break;
+		case ALZADO:
+			interfaz.camara.set(interfaz.p0Vistas[NORMAL], interfaz.rVistas[NORMAL], interfaz.Vvistas[NORMAL]);
+			interfaz.camara.vista = NORMAL;
+			break;
+		}
 
+		interfaz.camara.aplicar();
 		break;
 	case '+': // zoom in
 

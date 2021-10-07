@@ -10,7 +10,7 @@
 #endif
 
 #include <string>
-
+#include <vector>
 #include "igvEscena3D.h"
 #include "igvCamara.h"
 
@@ -27,6 +27,8 @@ protected:
 
 	// Valores de la vista panorámica
 	igvPunto3D p0, r, V;
+	vector<igvPunto3D> p0Vistas, rVistas, Vvistas;
+
 
 public:
 	// Constructores por defecto y destructor
