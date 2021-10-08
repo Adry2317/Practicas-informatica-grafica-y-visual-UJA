@@ -78,5 +78,13 @@ void igvCamara::aplicar(void) {
 }
 
 void igvCamara::zoom(double factor) {
+	//modificacion atributos ventana proyección perspectiva.
+	angulo = angulo * factor;
+
+	//modificacion atributos ventana proyección paralela.
+	xwmin = xwmin * factor;
+	xwmax = xwmax * factor;
+	ywmin = ywmin * factor;
+	ywmax = ywmax * factor;
 
 }

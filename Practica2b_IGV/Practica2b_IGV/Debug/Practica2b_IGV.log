@@ -1,3 +1,8 @@
 ﻿  igvInterfaz.cpp
-C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica2b_IGV\codigo\igvPunto3D.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de '<unnamed-enum-X>' cuando no hay ninguna variable declarada
-  Practica2b_IGV.vcxproj -> C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica2b_IGV\Debug\Practica2b_IGV.exe
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2b_IGV\codigo\igvPunto3D.h(26,2): warning C4091: 'typedef ': se ha omitido a la izquierda de '<unnamed-enum-X>' cuando no hay ninguna variable declarada
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2b_IGV\codigo\igvInterfaz.cpp(55,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2b_IGV\codigo\igvInterfaz.cpp(107,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2b_IGV\codigo\igvInterfaz.cpp(129,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2b_IGV\codigo\igvInterfaz.cpp(152,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2b_IGV\codigo\igvInterfaz.cpp(234,22): warning C4018: '<': no coinciden signed/unsigned
+  Practica2b_IGV.vcxproj -> C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica2b_IGV\Debug\Practica2b_IGV.exe

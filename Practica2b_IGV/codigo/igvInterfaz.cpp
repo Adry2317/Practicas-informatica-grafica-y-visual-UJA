@@ -7,7 +7,7 @@ extern igvInterfaz interfaz; // los callbacks deben ser estaticos y se requiere 
 
 // Metodos constructores -----------------------------------
 
-igvInterfaz::igvInterfaz() {}
+igvInterfaz::igvInterfaz() {  }
 
 igvInterfaz::~igvInterfaz() {}
 
@@ -15,6 +15,8 @@ igvInterfaz::~igvInterfaz() {}
 // Metodos publicos ----------------------------------------
 
 void igvInterfaz::crear_mundo(void) {
+	
+	cuatroCamaras = false;
 	// crear cámaras
 	p0 = igvPunto3D(3.0, 2.0, 4);
 	r = igvPunto3D(0, 0, 0);
@@ -40,14 +42,30 @@ void igvInterfaz::crear_mundo(void) {
 	rVistas.push_back(igvPunto3D(0, 0, 0));
 	Vvistas.push_back(igvPunto3D(0, 1.0, 0));
 
-	
-
 	interfaz.camara.set(IGV_PARALELA, p0, r, V,
 		-1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
 
 	//parámetros de la perspectiva
 	interfaz.camara.angulo = 60.0;
 	interfaz.camara.raspecto = 1.0;
+
+	
+	
+	//parámetros de la perspectiva
+	for (int i = 0; i < interfaz.p0Vistas.size(); i++)
+	{
+		igvCamara nuevaCamara;
+		nuevaCamara.set(IGV_PARALELA, p0Vistas[i], rVistas[i], Vvistas[i],
+			-1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+		nuevaCamara.angulo = 60.0;
+		nuevaCamara.raspecto = 1.0;
+		nuevaCamara.vista = tipoVista(i);
+	
+		
+		interfaz.vectorCamaras.push_back(nuevaCamara);
+	}
+
+	
 }
 
 void igvInterfaz::configura_entorno(int argc, char** argv,
@@ -85,86 +103,192 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 
 	switch (key) {
 	case 'p': // cambia el tipo de proyección de paralela a perspectiva y viceversa
-		
-		if (interfaz.camara.tipo == IGV_PARALELA) {
-			interfaz.camara.set(IGV_PERSPECTIVA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista],-1*3,1*3,-1*3,1*3,1,200);
+		if (interfaz.cuatroCamaras) {
+			for (int i = 0; i < interfaz.vectorCamaras.size(); i++)
+			{
+				if (interfaz.vectorCamaras[i].tipo == IGV_PARALELA) {
+					interfaz.vectorCamaras[i].set(IGV_PERSPECTIVA, interfaz.p0Vistas[interfaz.vectorCamaras[i].vista], interfaz.rVistas[interfaz.vectorCamaras[i].vista], interfaz.Vvistas[interfaz.vectorCamaras[i].vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+				}
+				else {
+					interfaz.vectorCamaras[i].set(IGV_PARALELA, interfaz.p0Vistas[interfaz.vectorCamaras[i].vista], interfaz.rVistas[interfaz.vectorCamaras[i].vista], interfaz.Vvistas[interfaz.vectorCamaras[i].vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+				}
+			}
 		}
 		else {
-			interfaz.camara.set(IGV_PARALELA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+			if (interfaz.camara.tipo == IGV_PARALELA) {
+				interfaz.camara.set(IGV_PERSPECTIVA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+			}
+			else {
+				interfaz.camara.set(IGV_PARALELA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+			}
+			interfaz.camara.aplicar();
 		}
-
-		interfaz.camara.aplicar();
 		break;
 	case 'P': // cambia el tipo de proyección de paralela a perspectiva y viceversa
-		if (interfaz.camara.tipo == IGV_PARALELA) {
-			interfaz.camara.set(IGV_PERSPECTIVA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+		if (interfaz.cuatroCamaras) {
+			for (int i = 0; i < interfaz.vectorCamaras.size(); i++)
+			{
+				if (interfaz.vectorCamaras[i].tipo == IGV_PARALELA) {
+					interfaz.vectorCamaras[i].set(IGV_PERSPECTIVA, interfaz.p0Vistas[interfaz.vectorCamaras[i].vista], interfaz.rVistas[interfaz.vectorCamaras[i].vista], interfaz.Vvistas[interfaz.vectorCamaras[i].vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+				}
+				else {
+					interfaz.vectorCamaras[i].set(IGV_PARALELA, interfaz.p0Vistas[interfaz.vectorCamaras[i].vista], interfaz.rVistas[interfaz.vectorCamaras[i].vista], interfaz.Vvistas[interfaz.vectorCamaras[i].vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+				}
+			}
 		}
 		else {
-			interfaz.camara.set(IGV_PARALELA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+			if (interfaz.camara.tipo == IGV_PARALELA) {
+				interfaz.camara.set(IGV_PERSPECTIVA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+			}
+			else {
+				interfaz.camara.set(IGV_PARALELA, interfaz.p0Vistas[interfaz.camara.vista], interfaz.rVistas[interfaz.camara.vista], interfaz.Vvistas[interfaz.camara.vista], -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200);
+			}
+			interfaz.camara.aplicar();
 		}
-
-		interfaz.camara.aplicar();
 		break;
 	case 'v': // cambia la posición de la cámara para mostrar las vistas planta, perfil, alzado o perspectiva
-		switch (interfaz.camara.vista)
-		{
-		case NORMAL:
-			interfaz.camara.set(interfaz.p0Vistas[PLANTA], interfaz.rVistas[PLANTA], interfaz.Vvistas[PLANTA]);
-			interfaz.camara.vista = PLANTA;
-			break;
-		case PLANTA:
-			interfaz.camara.set(interfaz.p0Vistas[PERFIL], interfaz.rVistas[PERFIL], interfaz.Vvistas[PERFIL]);
-			interfaz.camara.vista = PERFIL;
-			break;
-		case PERFIL:
-			interfaz.camara.set(interfaz.p0Vistas[ALZADO], interfaz.rVistas[ALZADO], interfaz.Vvistas[ALZADO]);
-			interfaz.camara.vista = ALZADO;
-			break;
-		case ALZADO:
-			interfaz.camara.set(interfaz.p0Vistas[NORMAL], interfaz.rVistas[NORMAL], interfaz.Vvistas[NORMAL]);
-			interfaz.camara.vista = NORMAL;
-			break;
+		
+		if (interfaz.cuatroCamaras) {
+			for (int i = 0; i < interfaz.vectorCamaras.size(); i++)
+			{
+				switch (interfaz.vectorCamaras[i].vista)
+				{
+
+				case NORMAL:
+					interfaz.vectorCamaras[i].set(interfaz.p0Vistas[PLANTA], interfaz.rVistas[PLANTA], interfaz.Vvistas[PLANTA]);
+					interfaz.vectorCamaras[i].vista = PLANTA;
+
+					break;
+				case PLANTA:
+					interfaz.vectorCamaras[i].set(interfaz.p0Vistas[PERFIL], interfaz.rVistas[PERFIL], interfaz.Vvistas[PERFIL]);
+					interfaz.vectorCamaras[i].vista = PERFIL;
+
+					break;
+				case PERFIL:
+					interfaz.vectorCamaras[i].set(interfaz.p0Vistas[ALZADO], interfaz.rVistas[ALZADO], interfaz.Vvistas[ALZADO]);
+					interfaz.vectorCamaras[i].vista = ALZADO;
+
+					break;
+				case ALZADO:
+					interfaz.vectorCamaras[i].set(interfaz.p0Vistas[NORMAL], interfaz.rVistas[NORMAL], interfaz.Vvistas[NORMAL]);
+					interfaz.vectorCamaras[i].vista = NORMAL;
+
+					break;
+				}
+				interfaz.vectorCamaras[i].aplicar();
+			}
+		}
+		else {
+			switch (interfaz.camara.vista)
+			{
+
+			case NORMAL:
+				interfaz.camara.set(interfaz.p0Vistas[PLANTA], interfaz.rVistas[PLANTA], interfaz.Vvistas[PLANTA]);
+				interfaz.camara.vista = PLANTA;
+
+				break;
+			case PLANTA:
+				interfaz.camara.set(interfaz.p0Vistas[PERFIL], interfaz.rVistas[PERFIL], interfaz.Vvistas[PERFIL]);
+				interfaz.camara.vista = PERFIL;
+
+				break;
+			case PERFIL:
+				interfaz.camara.set(interfaz.p0Vistas[ALZADO], interfaz.rVistas[ALZADO], interfaz.Vvistas[ALZADO]);
+				interfaz.camara.vista = ALZADO;
+
+				break;
+			case ALZADO:
+				interfaz.camara.set(interfaz.p0Vistas[NORMAL], interfaz.rVistas[NORMAL], interfaz.Vvistas[NORMAL]);
+				interfaz.camara.vista = NORMAL;
+
+				break;
+			}
 		}
 		
-		interfaz.camara.aplicar();
 		break;
+
 	case 'V': // cambia la posición de la cámara para mostrar las vistas planta, perfil, alzado o perspectiva
-		switch (interfaz.camara.vista)
-		{
-		case NORMAL:
-			interfaz.camara.set(interfaz.p0Vistas[PLANTA], interfaz.rVistas[PLANTA], interfaz.Vvistas[PLANTA]);
-			interfaz.camara.vista = PLANTA;
-			break;
-		case PLANTA:
-			interfaz.camara.set(interfaz.p0Vistas[PERFIL], interfaz.rVistas[PERFIL], interfaz.Vvistas[PERFIL]);
-			interfaz.camara.vista = PERFIL;
-			break;
-		case PERFIL:
-			interfaz.camara.set(interfaz.p0Vistas[ALZADO], interfaz.rVistas[ALZADO], interfaz.Vvistas[ALZADO]);
-			interfaz.camara.vista = ALZADO;
-			break;
-		case ALZADO:
-			interfaz.camara.set(interfaz.p0Vistas[NORMAL], interfaz.rVistas[NORMAL], interfaz.Vvistas[NORMAL]);
-			interfaz.camara.vista = NORMAL;
-			break;
+		if (!interfaz.cuatroCamaras) {
+			switch (interfaz.camara.vista)
+			{
+			case ALZADO:
+				interfaz.camara.set(interfaz.p0Vistas[PERFIL], interfaz.rVistas[PERFIL], interfaz.Vvistas[PERFIL]);
+				interfaz.camara.vista = PERFIL;
+				break;
+			case PERFIL:
+				interfaz.camara.set(interfaz.p0Vistas[PLANTA], interfaz.rVistas[PLANTA], interfaz.Vvistas[PLANTA]);
+				interfaz.camara.vista = PLANTA;
+				break;
+			case PLANTA:
+				interfaz.camara.set(interfaz.p0Vistas[NORMAL], interfaz.rVistas[NORMAL], interfaz.Vvistas[NORMAL]);
+				interfaz.camara.vista = NORMAL;
+				break;
+			case NORMAL:
+				interfaz.camara.set(interfaz.p0Vistas[ALZADO], interfaz.rVistas[ALZADO], interfaz.Vvistas[ALZADO]);
+				interfaz.camara.vista = ALZADO;
+				break;
+			}
+		
+		}
+		else {
+			for (int i = 0; i < interfaz.vectorCamaras.size(); i++)
+			{
+				switch (interfaz.vectorCamaras[i].vista)
+				{
+				case ALZADO:
+					interfaz.vectorCamaras[i].set(interfaz.p0Vistas[PERFIL], interfaz.rVistas[PERFIL], interfaz.Vvistas[PERFIL]);
+					interfaz.vectorCamaras[i].vista = PERFIL;
+					break;
+				case PERFIL:
+					interfaz.vectorCamaras[i].set(interfaz.p0Vistas[PLANTA], interfaz.rVistas[PLANTA], interfaz.Vvistas[PLANTA]);
+					interfaz.vectorCamaras[i].vista = PLANTA;
+					break;
+				case PLANTA:
+					interfaz.vectorCamaras[i].set(interfaz.p0Vistas[NORMAL], interfaz.rVistas[NORMAL], interfaz.Vvistas[NORMAL]);
+					interfaz.vectorCamaras[i].vista = NORMAL;
+					break;
+				case NORMAL:
+					interfaz.vectorCamaras[i].set(interfaz.p0Vistas[ALZADO], interfaz.rVistas[ALZADO], interfaz.Vvistas[ALZADO]);
+					interfaz.vectorCamaras[i].vista = ALZADO;
+					break;
+				}
+			}
+			
 		}
 
 		interfaz.camara.aplicar();
 		break;
 	case '+': // zoom in
+		if (interfaz.camara.angulo > 10 ) { //comprobamos que no se reduzca menos de un 5% el angulo de la camara.
+			interfaz.camara.zoom(0.95);
+		}
+		
+		interfaz.camara.aplicar();
 
 		break;
 	case '-': // zoom out
+		if (interfaz.camara.angulo <= 175) { //Comprobamos que no se abra el ángulo de la camara más de 180 grados
+			interfaz.camara.zoom(1.05);
+		}
+		interfaz.camara.aplicar();
 
 		break;
 	case 'n': // incrementar la distancia del plano cercano
-
+		interfaz.camara.znear += 0.2;
+		interfaz.camara.aplicar();
 		break;
 	case 'N': // decrementar la distancia del plano cercano
-
+		interfaz.camara.znear -= 0.2;
+		interfaz.camara.aplicar();
 		break;
 	case '4': // dividir la ventana  en cuatro vistas
-
+		if (!interfaz.cuatroCamaras) {
+			interfaz.cuatroCamaras = true;
+		}
+		else {
+			interfaz.cuatroCamaras = false;
+		}
+		
 		break;
 	case 'e': // activa/desactiva la visualizacion de los ejes
 		interfaz.escena.set_ejes(interfaz.escena.get_ejes() ? false : true);
@@ -183,17 +307,54 @@ void igvInterfaz::set_glutReshapeFunc(int w, int h) {
 	interfaz.set_alto_ventana(h);
 
 	// establece los parámetros de la cámara y de la proyección
-	interfaz.camara.aplicar();
+	
+		interfaz.camara.aplicar();
+	
 }
 
 void igvInterfaz::set_glutDisplayFunc() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // borra la ventana y el z-buffer
 
 	// se establece el viewport
-	glViewport(0, 0, interfaz.get_ancho_ventana(), interfaz.get_alto_ventana());
 
-	//visualiza la escena
-	interfaz.escena.visualizar();
+	if (interfaz.cuatroCamaras) {
+		glViewport(interfaz.get_ancho_ventana() / 2, 0, interfaz.get_ancho_ventana() / 2, interfaz.get_alto_ventana() / 2);
+		interfaz.vectorCamaras[3].aplicar();
+		interfaz.escena.visualizar();
+		
+		glViewport(0, interfaz.get_alto_ventana() / 2, interfaz.get_ancho_ventana() / 2, interfaz.get_alto_ventana() / 2);
+		interfaz.vectorCamaras[0].aplicar();
+		interfaz.escena.visualizar();
+		
+		glViewport(interfaz.get_ancho_ventana() / 2, interfaz.get_alto_ventana() / 2, interfaz.get_ancho_ventana() / 2, interfaz.get_alto_ventana() / 2);
+		interfaz.vectorCamaras[1].aplicar();
+		interfaz.escena.visualizar();
+		
+		glViewport(0, 0, interfaz.get_ancho_ventana() / 2, interfaz.get_alto_ventana() / 2);
+		interfaz.vectorCamaras[2].aplicar();
+		interfaz.escena.visualizar();
+		
+
+		
+		
+		
+		
+		
+		
+	}
+	else {
+		glViewport(0, 0, interfaz.get_ancho_ventana(), interfaz.get_alto_ventana());
+		//visualiza la escena
+		interfaz.camara.aplicar();
+		interfaz.escena.visualizar();
+		
+	}
+		
+		
+
+
+
+	
 
 	// refresca la ventana
 	glutSwapBuffers(); // se utiliza, en vez de glFlush(), para evitar el parpadeo

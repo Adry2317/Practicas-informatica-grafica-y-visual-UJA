@@ -24,6 +24,8 @@ protected:
 
 	igvEscena3D escena; // escena que se visualiza en la ventana definida por igvInterfaz
 	igvCamara camara; // cámara que se utiliza para visualizar la escena
+	vector<igvCamara> vectorCamaras;
+	bool cuatroCamaras;
 
 	// Valores de la vista panorámica
 	igvPunto3D p0, r, V;
