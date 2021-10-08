@@ -259,27 +259,64 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 		interfaz.camara.aplicar();
 		break;
 	case '+': // zoom in
-		if (interfaz.camara.angulo > 10 ) { //comprobamos que no se reduzca menos de un 5% el angulo de la camara.
-			interfaz.camara.zoom(0.95);
-		}
-		
-		interfaz.camara.aplicar();
+		if (!interfaz.cuatroCamaras) {
 
+			if (interfaz.camara.angulo > 10) { //comprobamos que no se reduzca menos de un 5% el angulo de la camara.
+				interfaz.camara.zoom(0.95);
+			}
+
+			interfaz.camara.aplicar();
+		}
+		else {
+			for (int i = 0; i < interfaz.vectorCamaras.size(); i++) {
+				if (interfaz.vectorCamaras[i].angulo > 10) { //comprobamos que no se reduzca menos de un 5% el angulo de la camara.
+					interfaz.vectorCamaras[i].zoom(0.95);
+				}
+
+				interfaz.vectorCamaras[i].aplicar();
+			}
+		}
 		break;
 	case '-': // zoom out
-		if (interfaz.camara.angulo <= 175) { //Comprobamos que no se abra el ángulo de la camara más de 180 grados
-			interfaz.camara.zoom(1.05);
+		if (!interfaz.cuatroCamaras) {
+			if (interfaz.camara.angulo <= 175) { //Comprobamos que no se abra el ángulo de la camara más de 180 grados
+				interfaz.camara.zoom(1.05);
+			}
+			interfaz.camara.aplicar();
 		}
-		interfaz.camara.aplicar();
+		else {
+			for (int i = 0; i < interfaz.vectorCamaras.size(); i++) {
+				if (interfaz.vectorCamaras[i].angulo <= 175) { //comprobamos que no se reduzca menos de un 5% el angulo de la camara.
+					interfaz.vectorCamaras[i].zoom(1.05);
+				}
 
+				interfaz.vectorCamaras[i].aplicar();
+			}
+		}
 		break;
 	case 'n': // incrementar la distancia del plano cercano
-		interfaz.camara.znear += 0.2;
-		interfaz.camara.aplicar();
+		if (!interfaz.cuatroCamaras) {
+			interfaz.camara.znear += 0.2;
+			interfaz.camara.aplicar();
+		}
+		else {
+			for (int i = 0; i < interfaz.vectorCamaras.size(); i++) {
+				interfaz.vectorCamaras[i].znear += 0.2;
+				interfaz.vectorCamaras[i].aplicar();
+			}
+		}
 		break;
 	case 'N': // decrementar la distancia del plano cercano
-		interfaz.camara.znear -= 0.2;
-		interfaz.camara.aplicar();
+		if (!interfaz.cuatroCamaras) {
+			interfaz.camara.znear -= 0.2;
+			interfaz.camara.aplicar();
+		}
+		else {
+			for (int i = 0; i < interfaz.vectorCamaras.size(); i++) {
+				interfaz.vectorCamaras[i].znear -= 0.2;
+				interfaz.vectorCamaras[i].aplicar();
+			}
+		}
 		break;
 	case '4': // dividir la ventana  en cuatro vistas
 		if (!interfaz.cuatroCamaras) {
