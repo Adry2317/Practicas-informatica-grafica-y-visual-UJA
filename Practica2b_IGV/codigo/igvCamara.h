@@ -17,6 +17,10 @@ typedef enum {
 	IGV_PERSPECTIVA
 } tipoCamara;
 
+
+/*
+*Muestra los diferentes tipos de vista que pueden tener las cámaras
+*/
 enum tipoVista {
 	NORMAL,
 	PLANTA,

@@ -51,7 +51,9 @@ void igvInterfaz::crear_mundo(void) {
 
 	
 	
-	//parámetros de la perspectiva
+	/*
+	*Creación de las cuatro camaras necesarias para el apartado E.
+	*/
 	for (int i = 0; i < interfaz.p0Vistas.size(); i++)
 	{
 		igvCamara nuevaCamara;
@@ -103,7 +105,7 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 
 	switch (key) {
 	case 'p': // cambia el tipo de proyección de paralela a perspectiva y viceversa
-		if (interfaz.cuatroCamaras) {
+		if (interfaz.cuatroCamaras) { //Se muestran las cuatro camaras
 			for (int i = 0; i < interfaz.vectorCamaras.size(); i++)
 			{
 				if (interfaz.vectorCamaras[i].tipo == IGV_PARALELA) {
@@ -125,7 +127,7 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 		}
 		break;
 	case 'P': // cambia el tipo de proyección de paralela a perspectiva y viceversa
-		if (interfaz.cuatroCamaras) {
+		if (interfaz.cuatroCamaras) {//Se muestran las cuatro camaras
 			for (int i = 0; i < interfaz.vectorCamaras.size(); i++)
 			{
 				if (interfaz.vectorCamaras[i].tipo == IGV_PARALELA) {
@@ -148,7 +150,7 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 		break;
 	case 'v': // cambia la posición de la cámara para mostrar las vistas planta, perfil, alzado o perspectiva
 		
-		if (interfaz.cuatroCamaras) {
+		if (interfaz.cuatroCamaras) {//Se muestran las cuatro camaras
 			for (int i = 0; i < interfaz.vectorCamaras.size(); i++)
 			{
 				switch (interfaz.vectorCamaras[i].vista)
@@ -230,7 +232,7 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 			}
 		
 		}
-		else {
+		else {//Se muestran las cuatro camaras
 			for (int i = 0; i < interfaz.vectorCamaras.size(); i++)
 			{
 				switch (interfaz.vectorCamaras[i].vista)
@@ -267,7 +269,7 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 
 			interfaz.camara.aplicar();
 		}
-		else {
+		else {//Se muestran las cuatro camaras
 			for (int i = 0; i < interfaz.vectorCamaras.size(); i++) {
 				if (interfaz.vectorCamaras[i].angulo > 10) { //comprobamos que no se reduzca menos de un 5% el angulo de la camara.
 					interfaz.vectorCamaras[i].zoom(0.95);
@@ -284,7 +286,7 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 			}
 			interfaz.camara.aplicar();
 		}
-		else {
+		else {//Se muestran las cuatro camaras
 			for (int i = 0; i < interfaz.vectorCamaras.size(); i++) {
 				if (interfaz.vectorCamaras[i].angulo <= 175) { //comprobamos que no se reduzca menos de un 5% el angulo de la camara.
 					interfaz.vectorCamaras[i].zoom(1.05);
@@ -299,7 +301,7 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 			interfaz.camara.znear += 0.2;
 			interfaz.camara.aplicar();
 		}
-		else {
+		else {//Se muestran las cuatro camaras
 			for (int i = 0; i < interfaz.vectorCamaras.size(); i++) {
 				interfaz.vectorCamaras[i].znear += 0.2;
 				interfaz.vectorCamaras[i].aplicar();
@@ -311,7 +313,7 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 			interfaz.camara.znear -= 0.2;
 			interfaz.camara.aplicar();
 		}
-		else {
+		else {//Se muestran las cuatro camaras
 			for (int i = 0; i < interfaz.vectorCamaras.size(); i++) {
 				interfaz.vectorCamaras[i].znear -= 0.2;
 				interfaz.vectorCamaras[i].aplicar();
@@ -354,7 +356,7 @@ void igvInterfaz::set_glutDisplayFunc() {
 
 	// se establece el viewport
 
-	if (interfaz.cuatroCamaras) {
+	if (interfaz.cuatroCamaras) { //Si se seleccionan el cuatro, dividimos la ventana en cuatro, donde mostraremos las cuatro camaras creadas anteriormente.
 		glViewport(interfaz.get_ancho_ventana() / 2, 0, interfaz.get_ancho_ventana() / 2, interfaz.get_alto_ventana() / 2);
 		interfaz.vectorCamaras[3].aplicar();
 		interfaz.escena.visualizar();
@@ -370,28 +372,15 @@ void igvInterfaz::set_glutDisplayFunc() {
 		glViewport(0, 0, interfaz.get_ancho_ventana() / 2, interfaz.get_alto_ventana() / 2);
 		interfaz.vectorCamaras[2].aplicar();
 		interfaz.escena.visualizar();
-		
-
-		
-		
-		
-		
-		
-		
+	
 	}
-	else {
+	else {//Se muestra solo una ventan, por defecto.
 		glViewport(0, 0, interfaz.get_ancho_ventana(), interfaz.get_alto_ventana());
 		//visualiza la escena
 		interfaz.camara.aplicar();
 		interfaz.escena.visualizar();
 		
 	}
-		
-		
-
-
-
-	
 
 	// refresca la ventana
 	glutSwapBuffers(); // se utiliza, en vez de glFlush(), para evitar el parpadeo
