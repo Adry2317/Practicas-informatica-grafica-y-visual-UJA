@@ -1,0 +1,13 @@
+﻿  igvCamara.cpp
+C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvPunto3D.h(25,2): warning C4091: 'typedef ': se ha omitido a la izquierda de '<unnamed-enum-X>' cuando no hay ninguna variable declarada
+  igvCilindro.cpp
+  igvEscena3D.cpp
+  igvInterfaz.cpp
+C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvPunto3D.h(25,2): warning C4091: 'typedef ': se ha omitido a la izquierda de '<unnamed-enum-X>' cuando no hay ninguna variable declarada
+  igvMallaTriangulos.cpp
+  igvPunto3D.cpp
+C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvPunto3D.h(25,2): warning C4091: 'typedef ': se ha omitido a la izquierda de '<unnamed-enum-X>' cuando no hay ninguna variable declarada
+  pr3a.cpp
+C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvPunto3D.h(25,2): warning C4091: 'typedef ': se ha omitido a la izquierda de '<unnamed-enum-X>' cuando no hay ninguna variable declarada
+  Generando código...
+  Practica3a_IGV.vcxproj -> C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\Debug\Practica3a_IGV.exe
