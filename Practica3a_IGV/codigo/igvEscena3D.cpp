@@ -74,7 +74,7 @@ void igvEscena3D::visualizar(void) {
 	//gluCylinder(cyl, 1, 1, 1, 20, 5);
 	//gluDeleteQuadric(cyl);
 	//cyl=nullptr;
-	igvCilindro pru(1,1,3,2);
+	igvCilindro pru(1,1,40,2);
 	
 	for (int i = 0; i < 40 * 3 * 2; i=i+3) {
 
