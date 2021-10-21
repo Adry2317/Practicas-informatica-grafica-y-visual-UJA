@@ -10,7 +10,9 @@
 
 igvEscena3D::igvEscena3D() {
 	ejes = true;
-
+	rotacionX = 0;
+	rotacionY = 0;
+	rotacionZ = 0;
 	// Apartado B: Inserta el código para crear un cilindro
 	malla = new igvMallaTriangulos();
 }
@@ -63,7 +65,9 @@ void igvEscena3D::visualizar(void) {
 
 	//glLightfv(GL_LIGHT0,GL_POSITION,luz0); // la luz se coloca aquí si se mueve junto con la escena
 	glMaterialfv(GL_FRONT, GL_EMISSION, color_malla);
-	
+	glRotatef(getRotacionX(), 1, 0, 0);
+	glRotatef(getRotacionY(), 0, 1, 0);
+	glRotatef(getRotacionZ(), 0, 0, 1);
 
 	// Apartado B: la siguiente llamada hay que sustituirla por la llamada al método visualizar de la malla
 	GLUquadric* cyl = gluNewQuadric();
@@ -75,3 +79,26 @@ void igvEscena3D::visualizar(void) {
 	glPopMatrix(); // restaura la matriz de modelado
 }
 
+void igvEscena3D::setRotacionX(GLfloat _angulo) {
+	this->rotacionX = _angulo;
+}
+
+void igvEscena3D::setRotacionY(GLfloat _angulo) {
+	this->rotacionY = _angulo;
+}
+
+void igvEscena3D::setRotacionZ(GLfloat _angulo) {
+	this->rotacionZ = _angulo;
+}
+
+GLfloat igvEscena3D::getRotacionX(){
+	return this->rotacionX;
+}
+
+GLfloat igvEscena3D::getRotacionY() {
+	return this->rotacionY;
+}
+
+GLfloat igvEscena3D::getRotacionZ() {
+	return this->rotacionZ;
+}

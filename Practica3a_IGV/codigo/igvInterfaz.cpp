@@ -52,22 +52,39 @@ void igvInterfaz::inicia_bucle_visualizacion() {
 void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 	switch (key) {
     case 'x': // Apartado A: rotar X positivo 
-
+		if (interfaz.escena.getRotacionX() < 360) {
+			interfaz.escena.setRotacionX(interfaz.escena.getRotacionX() + 10);
+		}
+		
 		break;
     case 'X': // Apartado A: rotar X negativo 
-
+		if (interfaz.escena.getRotacionX() > 0) {
+			interfaz.escena.setRotacionX(interfaz.escena.getRotacionX() - 10);
+		}
+		
 		break;
     case 'y': // Apartado A: rotar Y positivo 
-
+		if (interfaz.escena.getRotacionY() < 360) {
+			interfaz.escena.setRotacionY(interfaz.escena.getRotacionY() + 10);
+		}
+		
 		break;
     case 'Y': // Apartado A: rotar y negativo 
-
+		if (interfaz.escena.getRotacionY() > 0) {
+			interfaz.escena.setRotacionY(interfaz.escena.getRotacionY() - 10);
+		}
+		
 		break;
     case 'z': // Apartado A: rotar z positivo 
-
+		if (interfaz.escena.getRotacionZ() < 360) {
+			interfaz.escena.setRotacionZ(interfaz.escena.getRotacionZ() + 10);
+		}
 		break;
     case 'Z': // Apartado A: rotar Z negativo 
-
+		if (interfaz.escena.getRotacionZ() > 0) {
+			interfaz.escena.setRotacionZ(interfaz.escena.getRotacionZ() - 10);
+		}
+		
 		break;
 		case 'e': // activa/desactiva la visualizacion de los ejes
 			interfaz.escena.set_ejes(interfaz.escena.get_ejes()?false:true);

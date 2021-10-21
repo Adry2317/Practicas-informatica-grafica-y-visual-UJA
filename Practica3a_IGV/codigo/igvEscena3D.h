@@ -17,8 +17,9 @@ protected:
 	bool ejes;
 
 	// Apartado A: Añadir aquí los atributos con los ángulos de rotación en X, Y y Z.
-
-
+	GLfloat rotacionX;
+	GLfloat rotacionY;
+	GLfloat rotacionZ;
 public:
 	// atributos públicos
 	igvMallaTriangulos* malla; // malla de triángulos asociada a la escena
@@ -36,6 +37,15 @@ public:
 
 	// Apartado A: métodos para incrementar los ángulos
 	// Apartado A: métodos para obtener los valores de los ángulos
+
+	void setRotacionX(GLfloat _angulo);
+	void setRotacionY(GLfloat _angulo);
+	void setRotacionZ(GLfloat _angulo);
+
+	GLfloat getRotacionX();
+	GLfloat getRotacionY();
+	GLfloat getRotacionZ();
+	
 
 };
 
