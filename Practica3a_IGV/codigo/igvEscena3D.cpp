@@ -76,9 +76,9 @@ void igvEscena3D::visualizar(void) {
 	//cyl=nullptr;
 	igvCilindro pru(1,1,40,2);
 	
-	for (int i = 0; i < 40 * 3 * 2; i=i+3) {
+	for (int i = 0; i < pru.num_vertices*3; i=i+3) {
 
-		std::cout << "x: " << pru.vertices[i] << " y: " << pru.vertices[i + 1] << " z: " << pru.vertices[i + 2] << std::endl;
+		//std::cout << "x: " << pru.vertices[i] << " y: " << pru.vertices[i + 1] << " z: " << pru.vertices[i + 2] << std::endl;
 		glPushMatrix();
 		glTranslatef(pru.vertices[i], pru.vertices[i + 1], pru.vertices[i + 2]);
 		glutSolidCube(0.1);

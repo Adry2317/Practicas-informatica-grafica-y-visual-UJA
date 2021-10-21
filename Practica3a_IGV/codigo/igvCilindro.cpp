@@ -11,14 +11,14 @@ igvCilindro::igvCilindro(float r, float a, int divU, int divV)
 
 	/* Apartado B: Construir la malla de triángulos para representar el cilindro */
 	num_vertices = divU * (divV + 1);
-	vertices = new float[num_vertices];
+	vertices = new float[num_vertices*3];
 
 	float anguloAlfa = 360 / divU; //calculamos el angulo de apertura de los vertices.
 	float sumatorioAnglo = 0;
 	float salto = a / divV;
 	int capas = divV + 1;
-
-	for (float j = -a/capas; j < a/capas; j += salto) {
+	int nCapa = 0;
+	for (float j = -salto; j < a; j += salto) {
 		for (int i = 0; i < divU; i++)
 		{
 			float anguloConvertido = (sumatorioAnglo * PI) / 180;
@@ -27,12 +27,13 @@ igvCilindro::igvCilindro(float r, float a, int divU, int divV)
 			
 			sumatorioAnglo += anguloAlfa;
 
-			vertices[(3 * i)] = puntoX;
-			vertices[(3 * i) + 1] = j;
-			vertices[(3 * i) + 2] = puntoZ;
+			vertices[(3 * nCapa)] = puntoX;
+			vertices[(3 * nCapa) + 1] = j;
+			vertices[(3 * nCapa) + 2] = puntoZ;
+			nCapa++;
 
 		}
-
+		std::cout << "Salto: " << j << std::endl;
 		sumatorioAnglo = 0;
 	}
 
