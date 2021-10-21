@@ -10,6 +10,8 @@
 #endif
 
 #include "igvMallaTriangulos.h"
+#include "igvCilindro.h"
+#include <iostream>
 
 class igvEscena3D {
 protected:

@@ -70,12 +70,21 @@ void igvEscena3D::visualizar(void) {
 	glRotatef(getRotacionZ(), 0, 0, 1);
 
 	// Apartado B: la siguiente llamada hay que sustituirla por la llamada al método visualizar de la malla
-	GLUquadric* cyl = gluNewQuadric();
-	gluCylinder(cyl, 1, 1, 1, 20, 5);
-	gluDeleteQuadric(cyl);
-	cyl=nullptr;
+	//GLUquadric* cyl = gluNewQuadric();
+	//gluCylinder(cyl, 1, 1, 1, 20, 5);
+	//gluDeleteQuadric(cyl);
+	//cyl=nullptr;
+	igvCilindro pru(1,1,3,2);
 	
+	for (int i = 0; i < 40 * 3 * 2; i=i+3) {
 
+		std::cout << "x: " << pru.vertices[i] << " y: " << pru.vertices[i + 1] << " z: " << pru.vertices[i + 2] << std::endl;
+		glPushMatrix();
+		glTranslatef(pru.vertices[i], pru.vertices[i + 1], pru.vertices[i + 2]);
+		glutSolidCube(0.1);
+		glPopMatrix();
+	}
+	
 	glPopMatrix(); // restaura la matriz de modelado
 }
 
