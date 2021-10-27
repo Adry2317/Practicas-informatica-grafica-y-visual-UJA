@@ -44,3 +44,22 @@ void igvMallaTriangulos::visualizar(void) {
 
 }
 
+int long igvMallaTriangulos::getNumVertices() {
+	return num_vertices;
+}
+
+int long igvMallaTriangulos::getNumTriangulos() {
+	return num_triangulos;
+}
+
+unsigned int* igvMallaTriangulos::getTriangulos() {
+	return triangulos;
+}
+
+float* igvMallaTriangulos::getNormal() {
+	return normales;
+}
+
+float* igvMallaTriangulos::getVertices() {
+	return vertices;
+}

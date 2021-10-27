@@ -35,7 +35,11 @@ class igvMallaTriangulos {
 		// Método con las llamadas OpenGL para visualizar la malla de triángulos
 		void visualizar();
 
-
+		long int getNumVertices();
+		float* getVertices();
+		float* getNormal();
+		long int getNumTriangulos();
+		unsigned int* getTriangulos();
 };
 
 #endif

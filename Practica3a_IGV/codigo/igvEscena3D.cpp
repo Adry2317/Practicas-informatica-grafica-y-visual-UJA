@@ -14,11 +14,11 @@ igvEscena3D::igvEscena3D() {
 	rotacionY = 0;
 	rotacionZ = 0;
 	// Apartado B: Inserta el código para crear un cilindro
-	malla = new igvMallaTriangulos();
+	malla = new igvCilindro(1,1,40,2);
 }
 
 igvEscena3D::~igvEscena3D() {
-
+	delete malla;
 }
 
 
@@ -74,13 +74,13 @@ void igvEscena3D::visualizar(void) {
 	//gluCylinder(cyl, 1, 1, 1, 20, 5);
 	//gluDeleteQuadric(cyl);
 	//cyl=nullptr;
-	igvCilindro pru(1,1,40,2);
 	
-	for (int i = 0; i < pru.num_vertices*3; i=i+3) {
+	
+	for (int i = 0; i < malla->getNumVertices()*3; i=i+3) {
 
 		//std::cout << "x: " << pru.vertices[i] << " y: " << pru.vertices[i + 1] << " z: " << pru.vertices[i + 2] << std::endl;
 		glPushMatrix();
-		glTranslatef(pru.vertices[i], pru.vertices[i + 1], pru.vertices[i + 2]);
+		glTranslatef(malla->getVertices()[i], malla->getVertices()[i + 1], malla->getVertices()[i + 2]);
 		glutSolidCube(0.1);
 		glPopMatrix();
 	}

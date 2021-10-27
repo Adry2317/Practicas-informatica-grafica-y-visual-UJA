@@ -1,1 +1,6 @@
-﻿  Practica3a_IGV.vcxproj -> C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\Debug\Practica3a_IGV.exe
+﻿  igvCilindro.cpp
+C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvCilindro.cpp(16,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvCilindro.cpp(24,27): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  igvEscena3D.cpp
+  Generando código...
+  Practica3a_IGV.vcxproj -> C:\mac\Practicas_IGV_2021_22\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\Debug\Practica3a_IGV.exe
