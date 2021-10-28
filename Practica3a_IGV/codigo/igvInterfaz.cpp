@@ -16,7 +16,7 @@ igvInterfaz::~igvInterfaz () {}
 // Metodos publicos ----------------------------------------
 
 void igvInterfaz::crear_mundo(void) {
-	// crear cámaras
+	// crear cï¿½maras
 	interfaz.camara.set(IGV_PARALELA, igvPunto3D(3.0,2.0,4),igvPunto3D(0,0,0),igvPunto3D(0,1.0,0),
 		                                -1*1.5, 1*1.5, -1*1.5, 1*1.5, -1*3, 200);
 }
@@ -25,11 +25,11 @@ void igvInterfaz::configura_entorno(int argc, char** argv,
 			                              int _ancho_ventana, int _alto_ventana,
 			                              int _pos_X, int _pos_Y,
 													          string _titulo){
-	// inicialización de las variables de la interfaz																	
+	// inicializaciï¿½n de las variables de la interfaz																	
 	ancho_ventana = _ancho_ventana;
 	alto_ventana = _alto_ventana;
 
-	// inicialización de la ventana de visualización
+	// inicializaciï¿½n de la ventana de visualizaciï¿½n
 	glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
   glutInitWindowSize(_ancho_ventana,_alto_ventana);
@@ -86,7 +86,44 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 		}
 		
 		break;
-		case 'e': // activa/desactiva la visualizacion de los ejes
+    case 'n': // Apartado A: rotar Z negativo
+        if (interfaz.escena.malla->get_normalActivada()) {
+            interfaz.escena.malla->set_normalActivada(false);
+        }else{
+
+            interfaz.escena.malla->set_normalActivada(true);
+        }
+
+        break;
+
+    case 'N': // Apartado A: rotar Z negativo
+        if (interfaz.escena.malla->get_normalActivada()) {
+            interfaz.escena.malla->set_normalActivada(false);
+        }else{
+
+            interfaz.escena.malla->set_normalActivada(true);
+        }
+
+        break;
+    case 'g': // Apartado A: rotar Z negativo
+        if (interfaz.escena.malla->get_sombreado()) {
+            interfaz.escena.malla->set_sombreado(false);
+        }else{
+
+            interfaz.escena.malla->set_sombreado(true);
+        }
+
+        break;
+    case 'G': // Apartado A: rotar Z negativo
+        if (interfaz.escena.malla->get_sombreado()) {
+            interfaz.escena.malla->set_sombreado(false);
+        }else{
+
+            interfaz.escena.malla->set_sombreado(true);
+        }
+
+        break;
+    case 'e': // activa/desactiva la visualizacion de los ejes
 			interfaz.escena.set_ejes(interfaz.escena.get_ejes()?false:true);
 	  break;
     case 27: // tecla de escape para SALIR
@@ -102,7 +139,7 @@ void igvInterfaz::set_glutReshapeFunc(int w, int h) {
   interfaz.set_ancho_ventana(w);
   interfaz.set_alto_ventana(h);
 
-	// establece los parámetros de la cámara y de la proyección
+	// establece los parï¿½metros de la cï¿½mara y de la proyecciï¿½n
 	interfaz.camara.aplicar();
 }
 
@@ -112,7 +149,7 @@ void igvInterfaz::set_glutDisplayFunc() {
 	// se establece el viewport
 	glViewport(0, 0, interfaz.get_ancho_ventana(), interfaz.get_alto_ventana());
 
-	// establece los parámetros de la cámara y de la proyección
+	// establece los parï¿½metros de la cï¿½mara y de la proyecciï¿½n
 	interfaz.camara.aplicar();
 
 	//visualiza la escena

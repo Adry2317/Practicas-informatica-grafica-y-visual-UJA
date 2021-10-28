@@ -7,9 +7,7 @@
 class igvCilindro : public igvMallaTriangulos {
 
 private:
-	
-	
-	
+
 	const double PI = 3.14;
 public:
 

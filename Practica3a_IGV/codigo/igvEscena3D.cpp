@@ -13,7 +13,7 @@ igvEscena3D::igvEscena3D() {
 	rotacionX = 0;
 	rotacionY = 0;
 	rotacionZ = 0;
-	// Apartado B: Inserta el código para crear un cilindro
+	// Apartado B: Inserta el cï¿½digo para crear un cilindro
 	malla = new igvCilindro(1,1,40,2);
 }
 
@@ -53,7 +53,7 @@ void igvEscena3D::visualizar(void) {
 	// crear luces
 	GLfloat luz0[4] = { 2.0,2.5,3.0,1 }; // luz puntual para visualizar el cubo
 
-	glLightfv(GL_LIGHT0, GL_POSITION, luz0); // la luz se coloca aquí si permanece fija y no se mueve con la escena
+	glLightfv(GL_LIGHT0, GL_POSITION, luz0); // la luz se coloca aquï¿½ si permanece fija y no se mueve con la escena
 	glEnable(GL_LIGHT0);
 
 	// crear el modelo
@@ -63,28 +63,22 @@ void igvEscena3D::visualizar(void) {
 	if (ejes) pintar_ejes();
 
 
-	//glLightfv(GL_LIGHT0,GL_POSITION,luz0); // la luz se coloca aquí si se mueve junto con la escena
+	//glLightfv(GL_LIGHT0,GL_POSITION,luz0); // la luz se coloca aquï¿½ si se mueve junto con la escena
 	glMaterialfv(GL_FRONT, GL_EMISSION, color_malla);
 	glRotatef(getRotacionX(), 1, 0, 0);
 	glRotatef(getRotacionY(), 0, 1, 0);
 	glRotatef(getRotacionZ(), 0, 0, 1);
 
-	// Apartado B: la siguiente llamada hay que sustituirla por la llamada al método visualizar de la malla
+	// Apartado B: la siguiente llamada hay que sustituirla por la llamada al mï¿½todo visualizar de la malla
 	//GLUquadric* cyl = gluNewQuadric();
 	//gluCylinder(cyl, 1, 1, 1, 20, 5);
 	//gluDeleteQuadric(cyl);
 	//cyl=nullptr;
-	
-	
-	for (int i = 0; i < malla->getNumVertices()*3; i=i+3) {
 
-		//std::cout << "x: " << pru.vertices[i] << " y: " << pru.vertices[i + 1] << " z: " << pru.vertices[i + 2] << std::endl;
-		glPushMatrix();
-		glTranslatef(malla->getVertices()[i], malla->getVertices()[i + 1], malla->getVertices()[i + 2]);
-		glutSolidCube(0.1);
-		glPopMatrix();
-	}
-	
+    malla->visualizar();
+
+
+
 	glPopMatrix(); // restaura la matriz de modelado
 }
 

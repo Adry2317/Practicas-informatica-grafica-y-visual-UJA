@@ -3,21 +3,21 @@
 #include "igvInterfaz.h"
 
 // Objetos globales
-// objeto que contiene la configuración y la interacción con la ventana de visualización
+// objeto que contiene la configuraciï¿½n y la interacciï¿½n con la ventana de visualizaciï¿½n
 igvInterfaz interfaz;
 
 int main (int argc, char** argv) {
-	// inicializa la ventana de visualización
+	// inicializa la ventana de visualizaciï¿½n
 	interfaz.configura_entorno(argc,argv,
-                               500,500, // tama–o de la ventana
+                               500,500, // tamaï¿½o de la ventana
                                100,100, // posicion de la ventana
-                               "Informatica Grafica y Visualizacion. Practica 2B." // titulo de la ventana
+                               "Informatica Grafica y Visualizacion. Practica 3a." // titulo de la ventana
                                );
 
-	// establece las funciones callbacks para la gestión de los eventos
+	// establece las funciones callbacks para la gestiï¿½n de los eventos
 	interfaz.inicializa_callbacks();
 
-	// inicia el bucle de visualización de OpenGL
+	// inicia el bucle de visualizaciï¿½n de OpenGL
 	interfaz.inicia_bucle_visualizacion();
 
 	return(0);

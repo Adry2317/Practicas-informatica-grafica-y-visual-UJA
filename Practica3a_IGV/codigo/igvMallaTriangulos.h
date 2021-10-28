@@ -15,13 +15,15 @@ class igvMallaTriangulos {
 	protected:
 		// Atributos
 
-		long int num_vertices; // número de vértices de la malla de triángulos
-		float *vertices; // array con las (num_vertices * 3) coordenadas de los vértices
-		float *normales; // array con las (num_vertices * 3) coordenadas de la normal a cada vértice (sólo para la generación de la esfera)
+		long int num_vertices; // nï¿½mero de vï¿½rtices de la malla de triï¿½ngulos
+		float *vertices; // array con las (num_vertices * 3) coordenadas de los vï¿½rtices
+		float *normales; // array con las (num_vertices * 3) coordenadas de la normal a cada vï¿½rtice (sï¿½lo para la generaciï¿½n de la esfera)
 
-		long int num_triangulos; // número de triángulos de la malla de triángulos
-		unsigned int *triangulos; // array con los (num_triangulos * 3) índices a los vértices de cada triángulo
+		long int num_triangulos; // nï¿½mero de triï¿½ngulos de la malla de triï¿½ngulos
+		unsigned int *triangulos; // array con los (num_triangulos * 3) ï¿½ndices a los vï¿½rtices de cada triï¿½ngulo
 
+        bool normalActivada;
+        bool sombreado;
 
 	public:
 		// Constructor y destructor
@@ -32,7 +34,7 @@ class igvMallaTriangulos {
 
 		~igvMallaTriangulos();
 
-		// Método con las llamadas OpenGL para visualizar la malla de triángulos
+		// Mï¿½todo con las llamadas OpenGL para visualizar la malla de triï¿½ngulos
 		void visualizar();
 
 		long int getNumVertices();
@@ -40,6 +42,10 @@ class igvMallaTriangulos {
 		float* getNormal();
 		long int getNumTriangulos();
 		unsigned int* getTriangulos();
+        bool get_normalActivada();
+        void set_normalActivada(bool valor);
+        bool get_sombreado();
+        void set_sombreado(bool valor);
 };
 
 #endif
