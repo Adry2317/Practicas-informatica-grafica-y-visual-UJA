@@ -28,11 +28,11 @@ void igvInterfaz::configura_entorno(int argc, char** argv,
 	int _ancho_ventana, int _alto_ventana,
 	int _pos_X, int _pos_Y,
 	string _titulo) {
-	// inicialización de las variables de la interfaz																	
+	// inicializaciï¿½n de las variables de la interfaz																	
 	ancho_ventana = _ancho_ventana;
 	alto_ventana = _alto_ventana;
 
-	// inicialización de la ventana de visualización
+	// inicializaciï¿½n de la ventana de visualizaciï¿½n
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowSize(_ancho_ventana, _alto_ventana);
@@ -54,11 +54,12 @@ void igvInterfaz::inicia_bucle_visualizacion() {
 
 void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 	switch (key) {
-		////// Apartado C: incluir aquí el cambio de la cámara para mostrar las vistas planta, perfil, alzado o perspectiva 
-		////// Apartado C: incluir aquí la modificación de los grados de libertad del modelo pulsando las teclas correspondientes
+		////// Apartado C: incluir aquï¿½ el cambio de la cï¿½mara para mostrar las vistas planta, perfil, alzado o perspectiva 
+		////// Apartado C: incluir aquï¿½ la modificaciï¿½n de los grados de libertad del modelo pulsando las teclas correspondientes
 
 	case 'e': // activa/desactiva la visualizacion de los ejes
 		interfaz.escena.set_ejes(interfaz.escena.get_ejes() ? false : true);
+
 		break;
 	case 27: // tecla de escape para SALIR
 		exit(1);
@@ -73,7 +74,7 @@ void igvInterfaz::set_glutReshapeFunc(int w, int h) {
 	interfaz.set_ancho_ventana(w);
 	interfaz.set_alto_ventana(h);
 
-	// establece los parámetros de la cámara y de la proyección
+	// establece los parï¿½metros de la cï¿½mara y de la proyecciï¿½n
 	interfaz.camara.aplicar();
 }
 
@@ -84,7 +85,7 @@ void igvInterfaz::set_glutDisplayFunc() {
 	glViewport(0, 0, interfaz.get_ancho_ventana(), interfaz.get_alto_ventana());
 
 
-	// aplica las transformaciones en función de los parámetros de la cámara
+	// aplica las transformaciones en funciï¿½n de los parï¿½metros de la cï¿½mara
 	interfaz.camara.aplicar();
 	// visualiza la escena
 	interfaz.escena.visualizar();
@@ -94,7 +95,7 @@ void igvInterfaz::set_glutDisplayFunc() {
 }
 
 void igvInterfaz::set_glutIdleFunc() {
-	///// Apartado D: incluir el código para animar el modelo de la manera más realista posible
+	///// Apartado D: incluir el cï¿½digo para animar el modelo de la manera mï¿½s realista posible
 
 
 }

@@ -19,7 +19,7 @@ enum {
 
 class igvEscena3D {
 protected:
-	////// Apartado C: añadir quí los atributos para el control de los grados de libertad del modelo
+	////// Apartado C: aï¿½adir quï¿½ los atributos para el control de los grados de libertad del modelo
 
 	// Otros atributos		
 	bool ejes;
@@ -30,13 +30,16 @@ public:
 	igvEscena3D();
 	~igvEscena3D();
 
-	// método con las llamadas OpenGL para visualizar la escena
+	// mï¿½todo con las llamadas OpenGL para visualizar la escena
 	void visualizar(void);
 
-	///// Apartado B: Métodos para visualizar cada parte del modelo
+	///// Apartado B: Mï¿½todos para visualizar cada parte del modelo
+	void pintarTorsoInferior();
+    void pintarTorsoSuperior();
+    void pintarCabeza();
+    void pintarBrazos();
 
-
-	////// Apartado C: añadir aquí los métodos para modificar los grados de libertad del modelo
+	////// Apartado C: aï¿½adir aquï¿½ los mï¿½todos para modificar los grados de libertad del modelo
 
 
 	bool get_ejes() { return ejes; };
