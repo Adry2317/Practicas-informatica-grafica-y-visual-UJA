@@ -23,40 +23,54 @@ protected:
 	int alto_ventana;  // alto inicial de la ventana de visualizacion
 
 	igvEscena3D escena; // escena que se visualiza en la ventana definida por igvInterfaz
-	igvCamara camara; // cámara que se utiliza para visualizar la escena
-
+	igvCamara camara; // cï¿½mara que se utiliza para visualizar la escena
+    bool brazoArriba;
+    bool limiteCabeza;
+    bool limTorso;
 public:
 	// Constructores por defecto y destructor
 	igvInterfaz();
 	~igvInterfaz();
 
-	// Metodos estáticos
+	// Metodos estï¿½ticos
 	// callbacks de eventos
 	static void set_glutKeyboardFunc(unsigned char key, int x, int y); // metodo para control de eventos del teclado
-	static void set_glutReshapeFunc(int w, int h); // método que define la camara de vision y el viewport
-												   // se llama automáticamente cuano se camba el tamaño de la ventana
-	static void set_glutDisplayFunc(); // método para visualizar la escena
-	static void set_glutIdleFunc(); // método para animar la escena
+	static void set_glutReshapeFunc(int w, int h); // mï¿½todo que define la camara de vision y el viewport
+												   // se llama automï¿½ticamente cuano se camba el tamaï¿½o de la ventana
+	static void set_glutDisplayFunc(); // mï¿½todo para visualizar la escena
+	static void set_glutIdleFunc(); // mï¿½todo para animar la escena
 
 	// Metodos
 	// crea el mundo que se visualiza en la ventana
 	void crear_mundo(void);
 
-	// inicializa todos los parámetros para crear una ventana de visualización
+	// inicializa todos los parï¿½metros para crear una ventana de visualizaciï¿½n
 	void configura_entorno(int argc, char** argv, // parametros del main
-		int _ancho_ventana, int _alto_ventana, // ancho y alto de la ventana de visualización
-		int _pos_X, int _pos_Y, // posicion inicial de la ventana de visualización
-		string _titulo // título de la ventan de visualización
+		int _ancho_ventana, int _alto_ventana, // ancho y alto de la ventana de visualizaciï¿½n
+		int _pos_X, int _pos_Y, // posicion inicial de la ventana de visualizaciï¿½n
+		string _titulo // tï¿½tulo de la ventan de visualizaciï¿½n
 	);
 	void inicializa_callbacks(); // inicializa todas los callbacks
 	void inicia_bucle_visualizacion(); // visualiza la escena y espera a eventos sobre la interfaz
 
-	// métodos get_ y set_ de acceso a los atributos
+	// mï¿½todos get_ y set_ de acceso a los atributos
 	int get_ancho_ventana() { return ancho_ventana; };
 	int get_alto_ventana() { return alto_ventana; };
 
 	void set_ancho_ventana(int _ancho_ventana) { ancho_ventana = _ancho_ventana; };
 	void set_alto_ventana(int _alto_ventana) { alto_ventana = _alto_ventana; };
+
+    bool isBrazoArriba() const;
+
+    void setBrazoArriba(bool brazoArriba);
+
+    void setLimiteCabeza(bool limiteCabeza);
+
+    bool isLimiteCabeza() const;
+
+    void setLimTorso(bool limTorso);
+
+    bool isLimTorso() const;
 };
 
 #endif

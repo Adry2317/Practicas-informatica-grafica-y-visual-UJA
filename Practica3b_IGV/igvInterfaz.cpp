@@ -11,7 +11,9 @@ extern igvInterfaz interfaz; // los callbacks deben ser estaticos y se requiere 
 // Metodos constructores -----------------------------------
 
 igvInterfaz::igvInterfaz() {
-
+    brazoArriba = false;
+    limiteCabeza = false;
+    limTorso = false;
 }
 
 igvInterfaz::~igvInterfaz() {}
@@ -61,6 +63,104 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 		interfaz.escena.set_ejes(interfaz.escena.get_ejes() ? false : true);
 
 		break;
+
+    case 't': //activa movimiento torso superior
+        if(interfaz.escena.getAnguloTorsoSuperior() < 90) {
+            interfaz.escena.setAnguloTorsoSuperior(interfaz.escena.getAnguloTorsoSuperior() + 5);
+        }
+        break;
+    case 'T': //activa movimiento torso superior
+        if(interfaz.escena.getAnguloTorsoSuperior() > 5 ){
+            interfaz.escena.setAnguloTorsoSuperior(interfaz.escena.getAnguloTorsoSuperior() - 5);
+        }
+        break;
+    case 'c'://activa movimiento cabeza
+        if(interfaz.escena.getAnguloCabeza() < 33){
+            interfaz.escena.setAnguloCabeza(interfaz.escena.getAnguloCabeza()+5);
+        }
+        break;
+    case 'C':
+        if(interfaz.escena.getAnguloCabeza() > -12){
+            interfaz.escena.setAnguloCabeza(interfaz.escena.getAnguloCabeza()-5);
+        }
+    break;
+    case 'p'://PIERNA DERECHA HACIA DELANTE
+        if(interfaz.escena.getAnguloPiernaDerecha() > -45){
+            interfaz.escena.setAnguloPiernaDerecha(interfaz.escena.getAnguloPiernaDerecha() - 5);
+        }
+        break;
+    case 'P'://PIERNA DERECHA HACIA ATRAS
+        if(interfaz.escena.getAnguloPiernaDerecha() < 45){
+            interfaz.escena.setAnguloPiernaDerecha(interfaz.escena.getAnguloPiernaDerecha()+5);
+        }
+    break;
+    case 'o'://PIERNA IZQUIEDA HACIA DELANTE
+        if(interfaz.escena.getAnguloPirnaIzquierda() > -45){
+            interfaz.escena.setAnguloPirnaIzquierda(interfaz.escena.getAnguloPirnaIzquierda() - 5);
+        }
+        break;
+    case 'O'://PIERNA IZQUIERDA HACIA ATRAS
+        if(interfaz.escena.getAnguloPirnaIzquierda() < 45){
+            interfaz.escena.setAnguloPirnaIzquierda(interfaz.escena.getAnguloPirnaIzquierda()+5);
+        }
+        break;
+    case 'b': //BRAZO SUPERIOR DERECHO HACIA DELANTE
+        if(interfaz.escena.getAnguloBrazoDerecho() > -90){
+            interfaz.escena.setAnguloBrazoDerecho(interfaz.escena.getAnguloBrazoDerecho() - 5);
+        }
+        break;
+
+    case 'B': //BRAZO SUPERIOR DERECHO HACIA ATRAS
+        if(interfaz.escena.getAnguloBrazoDerecho()<80){
+            interfaz.escena.setAnguloBrazoDerecho(interfaz.escena.getAnguloBrazoDerecho()+5);
+        }
+        break;
+
+    case 'f': //BRAZO SUPERIOR IZQUIERDO HACIA DELANTE
+        if(interfaz.escena.getAnguloBrazoIzquierdo() > -90){
+            interfaz.escena.setAnguloBrazoIzquierdo(interfaz.escena.getAnguloBrazoIzquierdo() - 5);
+        }
+        break;
+
+    case 'F': //BRAZO SUPERIOR IZQUIERDO HACIA ATRAS
+        if(interfaz.escena.getAnguloBrazoIzquierdo()<80){
+            interfaz.escena.setAnguloBrazoIzquierdo(interfaz.escena.getAnguloBrazoIzquierdo()+5);
+        }
+        break;
+
+
+    case 'd': //ANTEBRAZO IZQUIERDO HACIA DELANTE
+        if(interfaz.escena.getAnguloAntebrazoIzquierdo() > -90){
+            interfaz.escena.setAnguloAntebrazoIzquierdo(interfaz.escena.getAnguloAntebrazoIzquierdo() - 5);
+        }
+        break;
+
+    case 'D': //ANTEBRAZO IZQUIERDO HACIA ATRAS
+        if(interfaz.escena.getAnguloAntebrazoIzquierdo()<0){
+            interfaz.escena.setAnguloAntebrazoIzquierdo(interfaz.escena.getAnguloAntebrazoIzquierdo()+5);
+        }
+        break;
+
+    case 's': //ANTEBRAZO DERECHO HACIA DELANTE
+        if(interfaz.escena.getAnguloAntebrazoDerecho() <90){
+            interfaz.escena.setAnguloAntebrazoDerecho(interfaz.escena.getAnguloAntebrazoDerecho() + 5);
+        }
+        break;
+
+    case 'S': //ANTEBRAZO DERECHO HACIA ATRAS
+        if(interfaz.escena.getAnguloAntebrazoDerecho()>0){
+            interfaz.escena.setAnguloAntebrazoDerecho(interfaz.escena.getAnguloAntebrazoDerecho()-5);
+        }
+        break;
+    case 'a':
+        if(interfaz.escena.isAnimacion()){
+            interfaz.escena.setAnimacion(false);
+        }else{
+            interfaz.escena.setAnimacion(true);
+        }
+        break;
+
+
 	case 27: // tecla de escape para SALIR
 		exit(1);
 		break;
@@ -96,7 +196,77 @@ void igvInterfaz::set_glutDisplayFunc() {
 
 void igvInterfaz::set_glutIdleFunc() {
 	///// Apartado D: incluir el c�digo para animar el modelo de la manera m�s realista posible
+    if(interfaz.escena.isAnimacion()) {
+        if(!interfaz.brazoArriba) {
+            if (interfaz.escena.getAnguloBrazoDerecho() > -90) {
+                interfaz.escena.setAnguloBrazoDerecho(interfaz.escena.getAnguloBrazoDerecho() - 0.25);
 
+            }else{
+                interfaz.brazoArriba = true;
+            }
+            if(interfaz.escena.getAnguloPiernaDerecha()>-45){
+                interfaz.escena.setAnguloPiernaDerecha(interfaz.escena.getAnguloPiernaDerecha()-0.125);
+            }
+
+            //Bajar
+            if (interfaz.escena.getAnguloBrazoIzquierdo() < 80) {
+                interfaz.escena.setAnguloBrazoIzquierdo(interfaz.escena.getAnguloBrazoIzquierdo() + 0.25);
+
+            }
+            if(interfaz.escena.getAnguloPirnaIzquierda()<45){
+                interfaz.escena.setAnguloPirnaIzquierda(interfaz.escena.getAnguloPirnaIzquierda()+0.125);
+            }
+        }else{
+            if (interfaz.escena.getAnguloBrazoDerecho() < 80) {
+                interfaz.escena.setAnguloBrazoDerecho(interfaz.escena.getAnguloBrazoDerecho() + 0.25);
+
+            }else{
+                interfaz.brazoArriba = false;
+            }
+
+            if(interfaz.escena.getAnguloPiernaDerecha()<45){
+                interfaz.escena.setAnguloPiernaDerecha(interfaz.escena.getAnguloPiernaDerecha()+0.125);
+            }
+
+            if (interfaz.escena.getAnguloBrazoIzquierdo() > -90) {
+                interfaz.escena.setAnguloBrazoIzquierdo(interfaz.escena.getAnguloBrazoIzquierdo() - 0.25);
+
+            }
+
+            if(interfaz.escena.getAnguloPirnaIzquierda()>-45){
+                interfaz.escena.setAnguloPirnaIzquierda(interfaz.escena.getAnguloPirnaIzquierda()-0.125);
+            }
+        }
+
+        if(!interfaz.isLimiteCabeza()){
+            if(interfaz.escena.getAnguloCabeza() < 33){
+                interfaz.escena.setAnguloCabeza(interfaz.escena.getAnguloCabeza()+0.1);
+            }else{
+                interfaz.setLimiteCabeza(true);
+            }
+        }else{
+            if(interfaz.escena.getAnguloCabeza() > -12){
+                interfaz.escena.setAnguloCabeza(interfaz.escena.getAnguloCabeza()-0.1);
+            }else{
+                interfaz.setLimiteCabeza(false);
+            }
+        }
+
+        if(!interfaz.isLimTorso()){
+            if(interfaz.escena.getAnguloTorsoSuperior() < 70) {
+                interfaz.escena.setAnguloTorsoSuperior(interfaz.escena.getAnguloTorsoSuperior() + 0.07);
+            }else{
+                interfaz.setLimTorso(true);
+            }
+        }else{
+            if(interfaz.escena.getAnguloTorsoSuperior() > 25 ){
+                interfaz.escena.setAnguloTorsoSuperior(interfaz.escena.getAnguloTorsoSuperior() - 0.07);
+            }else{
+                interfaz.setLimTorso(false);
+            }
+        }
+        glutPostRedisplay();
+    }
 
 }
 
@@ -107,3 +277,27 @@ void igvInterfaz::inicializa_callbacks() {
 	glutIdleFunc(set_glutIdleFunc);
 }
 
+bool igvInterfaz::isBrazoArriba() const {
+    return brazoArriba;
+}
+
+void igvInterfaz::setBrazoArriba(bool brazoArriba) {
+    igvInterfaz::brazoArriba = brazoArriba;
+}
+
+void igvInterfaz::setLimiteCabeza(bool limiteCabeza) {
+    igvInterfaz::limiteCabeza = limiteCabeza;
+}
+
+bool igvInterfaz::isLimiteCabeza() const {
+    return limiteCabeza;
+}
+
+
+void igvInterfaz::setLimTorso(bool limTorso) {
+    igvInterfaz::limTorso = limTorso;
+}
+
+bool igvInterfaz::isLimTorso() const {
+    return limTorso;
+}
