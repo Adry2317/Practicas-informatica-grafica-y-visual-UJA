@@ -38,6 +38,7 @@ public:
     void pintarTorsoSuperior();
     void pintarCabeza();
     void pintarBrazos();
+    void pintarPiernas();
 
 	////// Apartado C: a�adir aqu� los m�todos para modificar los grados de libertad del modelo
 

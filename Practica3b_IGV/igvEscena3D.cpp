@@ -64,6 +64,7 @@ void igvEscena3D::pintarTorsoSuperior() {
     glPushMatrix();
         glTranslated(0,1.5,0);
         glRotated(90, 1 ,0,0);
+
         gluCylinder(gluNewQuadric(), 1 ,1.0, 1,16,16);
     glPopMatrix();
 
@@ -104,7 +105,7 @@ void igvEscena3D::pintarBrazos() {
     GLfloat verde[] = { 0,1,0,1.0 };;
     glMaterialfv(GL_FRONT, GL_EMISSION, negro);
     glPushMatrix();
-        glTranslatef(3,0,0);
+        glTranslatef(-1,1.5,0.3);
         glRotatef(80, 1,0,0);
         glRotatef(-30, 0,1,0);
         gluCylinder(gluNewQuadric(), 0.14 ,0.14, 0.8,16,16);
@@ -123,17 +124,102 @@ void igvEscena3D::pintarBrazos() {
                 glTranslatef(0,0,0.08);
                 glRotatef(-30,1,0,0);
                 gluCylinder(gluNewQuadric(), 0.14 ,0.14, 0.8,16,16);
+
+                glPushMatrix();
+                    glMaterialfv(GL_FRONT, GL_EMISSION, verde);
+                    glTranslatef(0,0,0.93);
+                    glScalef(0.3,0.2,0.3);
+                    glutSolidCube(1);
+                glPopMatrix();
+
             glPopMatrix();
         glPopMatrix();
+    glPopMatrix();
 
+    //Brazo derecho.
 
+    glPushMatrix();
+        glMaterialfv(GL_FRONT, GL_EMISSION, negro);
+        glTranslatef(1,1.5,0.3);
+        glRotatef(80, 1,0,0);
+        glRotatef(30, 0,1,0);
+        gluCylinder(gluNewQuadric(), 0.14 ,0.14, 0.8,16,16);
 
+        glPushMatrix();
+            glMaterialfv(GL_FRONT, GL_EMISSION, verde);
+            glutSolidSphere(0.14,16,16);
+        glPopMatrix();
 
+        glPushMatrix();
+            glMaterialfv(GL_FRONT, GL_EMISSION, verde);
+            glTranslatef(0,0,0.82);
+            glutSolidSphere(0.14,16,16);
+            glPushMatrix();
+                glMaterialfv(GL_FRONT, GL_EMISSION, negro);
+                glTranslatef(0,0,0.08);
+                glRotatef(30,-1,0,0);
+                gluCylinder(gluNewQuadric(), 0.14 ,0.14, 0.8,16,16);
 
+                glPushMatrix();
+                    glMaterialfv(GL_FRONT, GL_EMISSION, verde);
+                    glTranslatef(0,0,0.93);
+                    glScalef(0.3,0.2,0.3);
+                    glutSolidCube(1);
+                glPopMatrix();
+
+            glPopMatrix();
+        glPopMatrix();
     glPopMatrix();
 
 
 }
+
+void igvEscena3D::pintarPiernas() {
+    GLfloat negro[] = { 0,0,0,1.0 };
+    GLfloat verde[] = { 0,1,0,1.0 };;
+    glPushMatrix();
+        glMaterialfv(GL_FRONT, GL_EMISSION, verde);
+        glTranslatef(-0.6,-0.5,0);
+        glutSolidSphere(0.14,16,16);
+        glPushMatrix();
+            glMaterialfv(GL_FRONT, GL_EMISSION, negro);
+            glRotatef(90,1,0,0);
+            gluCylinder(gluNewQuadric(), 0.14 ,0.14, 1.6,16,16);
+            glPushMatrix();
+                glMaterialfv(GL_FRONT, GL_EMISSION, verde);
+                glTranslatef(0,0,1.8);
+                glRotatef(90,1,0,0);
+                glRotatef(-5,0,1,0);
+                glScalef(0.7,0.2,1);
+                glutSolidCube(1);
+            glPopMatrix();
+        glPopMatrix();
+    glPopMatrix();
+
+
+    //pierna derecha
+    glPushMatrix();
+        glMaterialfv(GL_FRONT, GL_EMISSION, verde);
+        glTranslatef(0.6,-0.5,0);
+        glutSolidSphere(0.14,16,16);
+        glPushMatrix();
+            glMaterialfv(GL_FRONT, GL_EMISSION, negro);
+            glRotatef(90,1,0,0);
+            gluCylinder(gluNewQuadric(), 0.14 ,0.14, 1.6,16,16);
+            glPushMatrix();
+                glMaterialfv(GL_FRONT, GL_EMISSION, verde);
+                glTranslatef(0,0,1.8);
+                glRotatef(90,1,0,0);
+                glRotatef(-5,0,1,0);
+                glScalef(0.7,0.2,1);
+                glutSolidCube(1);
+            glPopMatrix();
+        glPopMatrix();
+    glPopMatrix();
+
+}
+
+
 
 ////// Apartado C: a�adir aqu� los m�todos para modificar los grados de libertad del modelo
 
@@ -159,11 +245,20 @@ void igvEscena3D::visualizar() {
 	/////             se recomienda crear una m�todo auxiliar que encapsule todo el c�digo para la visualizaci�n
 	/////             del modelo, dejando aqu� s�lo la llamada a ese m�todo, as� como distintas funciones una para cada
 	/////			  parte del modelo. 
+
+    glPushMatrix();
+    glRotatef(30,0,1,0);
     pintarTorsoInferior();
+    pintarPiernas();
+    glPopMatrix();
     glMaterialfv(GL_FRONT, GL_EMISSION, rojo);
 
 
+    glPushMatrix();
+    glRotated(30, 0 ,1,0);
     pintarTorsoSuperior();
+    pintarBrazos();
+    glPopMatrix();
     glPushMatrix();
         glTranslatef(0.7,2.5,1);
         glRotatef(12,0,1,1);
@@ -171,9 +266,12 @@ void igvEscena3D::visualizar() {
         pintarCabeza();
     glPopMatrix();
 
-    pintarBrazos();
+
+
     glPopMatrix(); // restaura la matriz de modelado
 }
+
+
 
 
 

@@ -1,16 +1,1 @@
-﻿  igvCamara.cpp
-C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvPunto3D.h(25,2): warning C4091: 'typedef ': se ha omitido a la izquierda de '<unnamed-enum-X>' cuando no hay ninguna variable declarada
-  igvCilindro.cpp
-C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvCilindro.cpp(18,19): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvCilindro.cpp(27,27): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-  igvEscena3D.cpp
-  igvInterfaz.cpp
-C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvPunto3D.h(25,2): warning C4091: 'typedef ': se ha omitido a la izquierda de '<unnamed-enum-X>' cuando no hay ninguna variable declarada
-  igvMallaTriangulos.cpp
-  igvPunto3D.cpp
-C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvPunto3D.h(25,2): warning C4091: 'typedef ': se ha omitido a la izquierda de '<unnamed-enum-X>' cuando no hay ninguna variable declarada
-  pr3a.cpp
-C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\codigo\igvPunto3D.h(25,2): warning C4091: 'typedef ': se ha omitido a la izquierda de '<unnamed-enum-X>' cuando no hay ninguna variable declarada
-  Generando código...
-  LINK : no se encontró C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\Debug\Practica3a_IGV.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
-  Practica3a_IGV.vcxproj -> C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\Debug\Practica3a_IGV.exe
+﻿  Practica3a_IGV.vcxproj -> C:\Users\Adrian\Documents\IGV\REPOSITORIO\Practicas-informatica-grafica-y-visual-UJA\Practica3a_IGV\Debug\Practica3a_IGV.exe
