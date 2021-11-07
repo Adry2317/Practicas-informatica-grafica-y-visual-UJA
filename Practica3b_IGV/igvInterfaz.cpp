@@ -22,8 +22,41 @@ igvInterfaz::~igvInterfaz() {}
 // Metodos publicos ----------------------------------------
 
 void igvInterfaz::crear_mundo(void) {
-	interfaz.camara.set(IGV_PARALELA, igvPunto3D(6.0, 4.0, 8), igvPunto3D(0, 0, 0), igvPunto3D(0, 1.0, 0),
-		-1 * 5, 1 * 5, -1 * 5, 1 * 5, -1 * 3, 200);
+
+    igvPunto3D p0,r,V;
+
+
+
+    p0 = igvPunto3D(6.0, 4.0, 8);
+    r = igvPunto3D(0, 0, 0);
+    V = igvPunto3D(0, 1.0, 0);
+
+    //Vista Normal
+    p0Vistas.push_back(p0);
+    rVistas.push_back(r);
+    Vvistas.push_back(V);
+
+    //Vista Planta
+    p0Vistas.push_back(igvPunto3D(0,-5,0));
+    rVistas.push_back(igvPunto3D(0,0,0));
+    Vvistas.push_back(igvPunto3D(1.0,0,0));
+
+    //Vista Perfil
+    p0Vistas.push_back(igvPunto3D(5, 0, 0));
+    rVistas.push_back(igvPunto3D(0, 0, 0));
+    Vvistas.push_back(igvPunto3D(0, 1.0, 0));
+
+    //Vista Alzado
+    p0Vistas.push_back(igvPunto3D(0, 0, 5));
+    rVistas.push_back(igvPunto3D(0, 0, 0));
+    Vvistas.push_back(igvPunto3D(0, 1.0, 0));
+
+    interfaz.camara.set(IGV_PARALELA, p0, r, V,
+                        -1 * 5, 1 * 5, -1 * 5, 1 * 5, -1 * 3, 200);
+
+
+
+
 }
 
 void igvInterfaz::configura_entorno(int argc, char** argv,
@@ -157,6 +190,32 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
             interfaz.escena.setAnimacion(false);
         }else{
             interfaz.escena.setAnimacion(true);
+        }
+        break;
+    case 'V':
+        switch (interfaz.camara.vis)
+        {
+
+            case panoramica:
+                interfaz.camara.set(interfaz.p0Vistas[planta], interfaz.rVistas[planta], interfaz.Vvistas[planta]);
+                interfaz.camara.vis = planta;
+
+                break;
+            case planta:
+                interfaz.camara.set(interfaz.p0Vistas[perfil], interfaz.rVistas[perfil], interfaz.Vvistas[perfil]);
+                interfaz.camara.vis = perfil;
+
+                break;
+            case perfil:
+                interfaz.camara.set(interfaz.p0Vistas[alzado], interfaz.rVistas[alzado], interfaz.Vvistas[alzado]);
+                interfaz.camara.vis = alzado;
+
+                break;
+            case alzado:
+                interfaz.camara.set(interfaz.p0Vistas[panoramica], interfaz.rVistas[panoramica], interfaz.Vvistas[panoramica]);
+                interfaz.camara.vis = panoramica;
+
+                break;
         }
         break;
 

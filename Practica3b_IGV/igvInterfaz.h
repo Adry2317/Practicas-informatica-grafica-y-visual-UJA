@@ -11,6 +11,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 #include "igvEscena3D.h"
 #include "igvCamara.h"
 
@@ -24,9 +25,11 @@ protected:
 
 	igvEscena3D escena; // escena que se visualiza en la ventana definida por igvInterfaz
 	igvCamara camara; // c�mara que se utiliza para visualizar la escena
+    vector<igvPunto3D> p0Vistas, rVistas, Vvistas;
     bool brazoArriba;
     bool limiteCabeza;
     bool limTorso;
+
 public:
 	// Constructores por defecto y destructor
 	igvInterfaz();

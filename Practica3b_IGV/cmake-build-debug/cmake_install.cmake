@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV
+# Install script for directory: C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

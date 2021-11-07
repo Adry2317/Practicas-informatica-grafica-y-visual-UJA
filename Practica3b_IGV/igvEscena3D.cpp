@@ -58,8 +58,10 @@ void pintar_ejes(void) {
 
 
 
-//metodos
 
+/**
+ * Pinta la zona del torso inferior
+ * */
 void igvEscena3D::pintarTorsoInferior(){
     glPushMatrix();
     glTranslated(0, 0.5, 0);
@@ -70,6 +72,9 @@ void igvEscena3D::pintarTorsoInferior(){
 
 }
 
+/**
+ *Pinta el torso superior
+ * */
 void igvEscena3D::pintarTorsoSuperior() {
     glPushMatrix();
         glTranslated(0,1.5,0);
@@ -83,24 +88,27 @@ void igvEscena3D::pintarTorsoSuperior() {
         glutSolidSphere(1, 16,16);
     glPopMatrix();
 }
-
+/**
+ * Pinta la cabeza
+ * */
 void igvEscena3D::pintarCabeza() {
-    GLfloat rojo[] = { 1,0,0,1.0 };
     GLfloat verde[] = { 0,1,0,1.0 };
-    GLfloat negro[] = { 0,0,0,1.0 };
-    glMaterialfv(GL_FRONT, GL_EMISSION, verde);
+    GLfloat ojos[] = { 0,0,0,1.0 };
+
+    glMaterialfv(GL_FRONT, GL_EMISSION,verde);
     glPushMatrix();
-        glTranslated(0.7,2.5,1);
+        glTranslated(0.7,2.5,1);//Cabeza
         glutSolidSphere(0.7,16,16);
 
+        //Pintar ojos
         glPushMatrix();
-        glMaterialfv(GL_FRONT, GL_EMISSION, negro);
+        glMaterialfv(GL_FRONT, GL_EMISSION, ojos);
         glTranslated(-0.2,0.5,0.4);
         glutSolidSphere(0.1,16,16);
         glPopMatrix();
 
         glPushMatrix();
-        glMaterialfv(GL_FRONT, GL_EMISSION, negro);
+        glMaterialfv(GL_FRONT, GL_EMISSION, ojos);
         glTranslated(0.4,0.4,0.4);
         glutSolidSphere(0.1,16,16);
         glPopMatrix();
@@ -109,16 +117,20 @@ void igvEscena3D::pintarCabeza() {
 
 }
 
-
+/**
+ *
+ */
 void igvEscena3D::pintarBrazos() {
     GLfloat negro[] = { 0,0,0,1.0 };
     GLfloat verde[] = { 0,1,0,1.0 };;
+    //brazo izquierdo
     glMaterialfv(GL_FRONT, GL_EMISSION, negro);
     glPushMatrix();
+
         glTranslatef(-1,1.5,0.3);
         glRotatef(80, 1,0,0);
         glRotatef(-30, 0,1,0);
-        glRotatef(anguloBrazoIzquierdo,1,0,0);
+        glRotatef(anguloBrazoIzquierdo,1,0,0);//
         gluCylinder(gluNewQuadric(), 0.14 ,0.14, 0.8,16,16);
 
         glPushMatrix();
@@ -186,6 +198,9 @@ void igvEscena3D::pintarBrazos() {
 
 }
 
+/**
+ * Función encargada de pintar las piernas
+ */
 void igvEscena3D::pintarPiernas() {
     GLfloat negro[] = { 0,0,0,1.0 };
     GLfloat verde[] = { 0,1,0,1.0 };;

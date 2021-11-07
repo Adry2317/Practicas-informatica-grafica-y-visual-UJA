@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/igvCamara.cpp" "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvCamara.cpp.obj"
-  "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/igvEscena3D.cpp" "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvEscena3D.cpp.obj"
-  "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/igvInterfaz.cpp" "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvInterfaz.cpp.obj"
-  "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/igvPunto3D.cpp" "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvPunto3D.cpp.obj"
-  "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/pr3b.cpp" "C:/Users/Adrian/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/pr3b.cpp.obj"
+  "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/igvCamara.cpp" "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvCamara.cpp.obj"
+  "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/igvEscena3D.cpp" "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvEscena3D.cpp.obj"
+  "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/igvInterfaz.cpp" "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvInterfaz.cpp.obj"
+  "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/igvPunto3D.cpp" "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvPunto3D.cpp.obj"
+  "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/pr3b.cpp" "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3b_IGV/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/pr3b.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
