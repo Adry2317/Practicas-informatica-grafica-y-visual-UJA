@@ -1,0 +1,3 @@
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/cmake-build-debug/CMakeFiles/rebuild_cache.dir
