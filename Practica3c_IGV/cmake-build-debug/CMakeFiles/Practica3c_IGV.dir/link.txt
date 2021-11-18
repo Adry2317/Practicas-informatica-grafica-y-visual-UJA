@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Practica3c_IGV.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\Practica3c_IGV.dir/objects.a @CMakeFiles\Practica3c_IGV.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\Practica3c_IGV.dir/objects.a -Wl,--no-whole-archive -o Practica3c_IGV.exe -Wl,--out-implib,libPractica3c_IGV.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Practica3c_IGV.dir\linklibs.rsp
