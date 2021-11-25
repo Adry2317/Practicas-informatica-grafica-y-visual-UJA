@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvCaja.cpp
+igvCaja.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvCaja.h
+iostream
+-
+
 C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvCaja.h
 GLUT/glut.h
 -
@@ -15,6 +21,14 @@ OpenGL/glu.h
 -
 GL/glut.h
 -
+
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvCamara.cpp
+math.h
+-
+stdio.h
+-
+igvCamara.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvCamara.h
 
 C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvCamara.h
 GLUT/glut.h
@@ -27,6 +41,16 @@ GL/glut.h
 -
 igvPunto3D.h
 C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvPunto3D.h
+
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvEscena3D.cpp
+cstdlib
+-
+stdio.h
+-
+iostream
+-
+igvEscena3D.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvEscena3D.h
 
 C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvEscena3D.h
 GLUT/glut.h
@@ -70,6 +94,14 @@ C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-
 igvCamara.h
 C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvCamara.h
 
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvPunto3D.cpp
+stdio.h
+-
+math.h
+-
+igvPunto3D.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvPunto3D.h
+
 C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvPunto3D.h
 GLUT/glut.h
 -
@@ -79,4 +111,10 @@ OpenGL/glu.h
 -
 GL/glut.h
 -
+
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/pr3c.cpp
+cstdlib
+-
+igvInterfaz.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Practica3c_IGV/igvInterfaz.h
 

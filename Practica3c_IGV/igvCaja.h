@@ -1,5 +1,6 @@
 #ifndef __IGVCAJA
 #define __IGVCAJA
+#define GL_SILENCE_DEPRECATION
 
 #if defined(__APPLE__) && defined(__MACH__)
 #include <GLUT/glut.h>
@@ -13,35 +14,23 @@ class igvCaja
 {
 private:
 	float* color;
-    float* colorSeleccion;
     bool seleccionada;
 public:
 	//Constructores y destructores
 	igvCaja();
-	igvCaja(float r, float g, float b, float _r, float _g, float _b);
+	igvCaja(float r, float g, float b);
 	igvCaja(const igvCaja& orig);
 	~igvCaja();
 
-	//Mï¿½todo para visualizar una caja
+	//Método para visualizar una caja
 	void visualizar();
 
 	//Devuelve el color
 	float* getColor();
+	GLubyte* getColorByte(); //Para comparar con el pixel obtenido en la selección
 
-    float *getColorSeleccion() const;
-
-    GLubyte* getColorByte();
-
-    void setColor(float *color);
-
-    void setColorSeleccion(float *colorSeleccion);
-    //Para comparar con el pixel obtenido en la selecciï¿½n
-
-    GLubyte* getColorSeleccionByte();
-
-    bool isSeleccionada() const;
-
-    void setSeleccionada(bool seleccionada);
+    
+    void setSeleccionada(bool valor);
 };
 
 #endif
