@@ -1,4 +1,5 @@
 #include "igvMaterial.h"
+#include "igvPunto3D.h"
 
 // Metodos constructores 
 
@@ -30,12 +31,17 @@ void igvMaterial::aplicar(void) {
 
 // APARTADO B
 // Aplicar los valores de los atributos del objeto igvMaterial:
-// - coeficiente de reflexión de la luz ambiental
-// - coeficiente de reflexión difuso
-// - coeficiente de reflesión especular
+// - coeficiente de reflexiï¿½n de la luz ambiental
+// - coeficiente de reflexiï¿½n difuso
+// - coeficiente de reflesiï¿½n especular
 // - exponente de Phong
 
-// establecer como color de emisión (0.0, 0.0, 0.0) (el objeto no es una fuente de luz)
+    glMaterialfv(GL_FRONT, GL_AMBIENT, Ka.cloneToFloatArray());
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, Kd.cloneToFloatArray());
+    glMaterialfv(GL_FRONT, GL_SPECULAR, Ks.cloneToFloatArray());
+    glMaterialf(GL_FRONT,GL_SHININESS,Ns);
+    glMaterialfv(GL_FRONT, GL_EMISSION, igvPunto3D(0,0,0).cloneToFloatArray() );
+// establecer como color de emisiï¿½n (0.0, 0.0, 0.0) (el objeto no es una fuente de luz)
 
 
 

@@ -16,7 +16,7 @@ igvInterfaz::~igvInterfaz () {}
 // Metodos publicos ----------------------------------------
 
 void igvInterfaz::crear_mundo(void) {
-	// crear cámaras
+	// crear cï¿½maras
 	interfaz.camara.set(IGV_PARALELA, igvPunto3D(3.0,2.0,4),igvPunto3D(0,0,0),igvPunto3D(0,1.0,0),
 		                                -1*4.5, 1*4.5, -1*4.5, 1*4.5, -1*3, 200);
 }
@@ -25,11 +25,11 @@ void igvInterfaz::configura_entorno(int argc, char** argv,
 			                              int _ancho_ventana, int _alto_ventana,
 			                              int _pos_X, int _pos_Y,
 													          string _titulo){
-	// inicialización de las variables de la interfaz																	
+	// inicializaciï¿½n de las variables de la interfaz																	
 	ancho_ventana = _ancho_ventana;
 	alto_ventana = _alto_ventana;
 
-	// inicialización de la ventana de visualización
+	// inicializaciï¿½n de la ventana de visualizaciï¿½n
 	glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
   glutInitWindowSize(_ancho_ventana,_alto_ventana);
@@ -52,31 +52,65 @@ void igvInterfaz::inicia_bucle_visualizacion() {
 }
 
 void igvInterfaz::set_glutSpecialFunc(int key, int x, int y) {
-	// Apartado E: manejo de las teclas especiales del teclado para mover la posición del foco
+	// Apartado E: manejo de las teclas especiales del teclado para mover la posiciï¿½n del foco
+    switch (key) {
+        case GLUT_KEY_UP:{
+            igvPunto3D posicion (interfaz.escena.getPosicion()[0],interfaz.escena.getPosicion()[1]+0.2, interfaz.escena.getPosicion()[2]);
+            interfaz.escena.setPosicion(posicion);
+        }
+        break;
+        case GLUT_KEY_DOWN:{
+            igvPunto3D posicion(interfaz.escena.getPosicion()[0],interfaz.escena.getPosicion()[1]-0.2,interfaz.escena.getPosicion()[2]);
+            interfaz.escena.setPosicion(posicion);
+        }
+        break;
+        case GLUT_KEY_LEFT:{
+            igvPunto3D posicion (interfaz.escena.getPosicion()[0]-0.2,interfaz.escena.getPosicion()[1], interfaz.escena.getPosicion()[2]);
+            interfaz.escena.setPosicion(posicion);
+        }
+        break;
 
+        case GLUT_KEY_RIGHT:{
+            igvPunto3D posicion(interfaz.escena.getPosicion()[0]+0.2,interfaz.escena.getPosicion()[1],interfaz.escena.getPosicion()[2]);
+            interfaz.escena.setPosicion(posicion);
+        }
+        break;
+    }
 
 	glutPostRedisplay(); // renueva el contenido de la ventana de vision
 }
 
 void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
 	switch (key) {
-		case 'd': // Apartado D: aumentar en 0.1 la componente R del coeficiente difuso del material
-
+		case 'd': {// Apartado D: aumentar en 0.1 la componente R del coeficiente difuso del material
+            igvColor difuso = igvColor(interfaz.escena.getDifuso()[0] + 0.1, 0, 0);
+            interfaz.escena.setDifuso(difuso);
+        }
 		break;
-		case 'D': // Apartado D: disminuir en 0.1 la componente R del coeficiente difuso del material
-
+		case 'D': { // Apartado D: disminuir en 0.1 la componente R del coeficiente difuso del material
+            igvColor difuso = igvColor(interfaz.escena.getDifuso()[0]-0.1,0,0);
+            interfaz.escena.setDifuso(difuso);
+            }
 		break;
-		case 's': // Apartado D: aumentar en 0.1 la componente R del coeficiente especular del material
+		case 's':{
+            igvColor especular(interfaz.escena.getEspecular()[0]+0.1,interfaz.escena.getEspecular()[1],interfaz.escena.getEspecular()[2]);
+            interfaz.escena.setEspecular(especular);
+        }
+         // Apartado D: aumentar en 0.1 la componente R del coeficiente especular del material
 
 		break;
 		case 'S': // Apartado D: disminuir en 0.1 la componente R del coeficiente especular del material
-
+        {
+            igvColor especular(interfaz.escena.getEspecular()[0]-0.1,interfaz.escena.getEspecular()[1],interfaz.escena.getEspecular()[2]);
+            interfaz.escena.setEspecular(especular);
+        }
 		break;
 		case 'p': // Apartado D: aumentar en 10 el exponente de Phong del material
 
+            interfaz.escena.setPhong(interfaz.escena.getPhong()+10);
 		break;
 		case 'P': // Apartado D: disminuir en 10 el exponente de Phong del material
-
+            interfaz.escena.setPhong(interfaz.escena.getPhong()-10);
 		break;
 		case 'e': // activa/desactiva la visualizacion de los ejes
 			interfaz.escena.set_ejes(interfaz.escena.get_ejes()?false:true);
@@ -94,7 +128,7 @@ void igvInterfaz::set_glutReshapeFunc(int w, int h) {
   interfaz.set_ancho_ventana(w);
   interfaz.set_alto_ventana(h);
 
-	// establece los parámetros de la cámara y de la proyección
+	// establece los parï¿½metros de la cï¿½mara y de la proyecciï¿½n
 	interfaz.camara.aplicar();
 }
 
@@ -104,7 +138,7 @@ void igvInterfaz::set_glutDisplayFunc() {
 	// se establece el viewport
 	glViewport(0, 0, interfaz.get_ancho_ventana(), interfaz.get_alto_ventana());
 
-	// establece los parámetros de la cámara y de la proyección
+	// establece los parï¿½metros de la cï¿½mara y de la proyecciï¿½n
 	interfaz.camara.aplicar();
 
 	//visualiza la escena

@@ -9,7 +9,7 @@ igvFuenteLuz::igvFuenteLuz(const unsigned int _idLuz,
 													 const igvPunto3D  & _posicion,
 													 const igvColor & cAmb, const igvColor & cDif, const igvColor & cEsp,
 													 const double a0, const double a1, const double a2) {
-
+    foco = false;
   idLuz = _idLuz;
 														 
 	posicion = _posicion;
@@ -37,7 +37,7 @@ igvFuenteLuz::igvFuenteLuz(const unsigned int _idLuz,
 													 const igvPunto3D& dir_foco, const double ang_foco, const double exp_foco) {
 
   idLuz = _idLuz;
-														 
+		foco = true;
 	posicion = _posicion;
 														 
 	colorAmbiente = cAmb;
@@ -135,6 +135,11 @@ if(encendida){
     glLightf(idLuz,GL_LINEAR_ATTENUATION, (float)aten_a1);
     glLightf(idLuz,GL_QUADRATIC_ATTENUATION, (float)aten_a2);
 
+    if(foco) {
+        glLightfv(idLuz, GL_SPOT_DIRECTION, direccion_foco.cloneToFloatArray());
+        glLightf(idLuz, GL_SPOT_CUTOFF, angulo_foco);
+        glLightf(idLuz,GL_SPOT_EXPONENT,exponente_foco);
+    }
 
 }else{
     glDisable(GL_LIGHTING);
@@ -152,4 +157,6 @@ if(encendida){
 	
 
 }
+
+
 

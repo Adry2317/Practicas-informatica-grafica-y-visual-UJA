@@ -16,8 +16,12 @@
 class igvEscena3D {
 	protected:
 		// Atributos
-
+        igvColor ambiente;
+        igvColor difuso;
+        igvColor especular;
+        float phong;
 		bool ejes;
+        igvPunto3D posicion;
 
 	public:
 
@@ -34,6 +38,28 @@ class igvEscena3D {
 		bool get_ejes() {return ejes;};
 		void set_ejes(bool _ejes){ejes = _ejes;};
 
+
+    const igvColor &getAmbiente() const;
+
+    void setAmbiente(const igvColor &ambiente);
+
+    const igvColor &getDifuso() const;
+
+    void setDifuso(const igvColor &difuso);
+
+    const igvColor &getEspecular() const;
+
+    void setEspecular(const igvColor &especular);
+
+    float getPhong() const;
+
+    void setPhong(float phong);
+
+    const igvPunto3D &getPosicion() const;
+
+    void setPosicion(const igvPunto3D &posicion);
 };
+
+
 
 #endif

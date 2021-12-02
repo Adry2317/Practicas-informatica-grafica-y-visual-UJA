@@ -17,7 +17,7 @@ class igvFuenteLuz {
 	protected:
 		// Atributos
 		unsigned int idLuz; // identificador de la luz (GL_LIGHT0 a GL_LIGHT7)
-
+        bool foco;
         igvPunto3D posicion; // posici�n de la luz
 
 		igvColor colorAmbiente; // color ambiental de la luz
@@ -75,6 +75,8 @@ class igvFuenteLuz {
 		unsigned int esta_encendida(void);
 
 		void aplicar(void);
+
+    const igvPunto3D &getPosicion1() const;
 };
 
 #endif
