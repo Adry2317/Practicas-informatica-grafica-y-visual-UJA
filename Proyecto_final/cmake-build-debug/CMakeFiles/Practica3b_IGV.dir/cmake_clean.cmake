@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Practica3b_IGV.dir/Utils.cpp.obj"
   "CMakeFiles/Practica3b_IGV.dir/igvCamara.cpp.obj"
   "CMakeFiles/Practica3b_IGV.dir/igvEscena3D.cpp.obj"
   "CMakeFiles/Practica3b_IGV.dir/igvInterfaz.cpp.obj"

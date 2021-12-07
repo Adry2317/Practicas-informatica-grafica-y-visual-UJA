@@ -16,7 +16,10 @@ igvCamara::igvCamara(tipoCamara _tipo, igvPunto3D _P0, igvPunto3D _r, igvPunto3D
 	P0 = _P0;
 	r = _r;
 	V = _V;
-
+    rotacionPan=-90;
+    rotaciontilt = 0;
+    rotacionOrbitalV=0;
+    rotacionOrbitalH=0;
 	tipo = _tipo;
 
 }
@@ -43,6 +46,10 @@ void igvCamara::set(tipoCamara _tipo, igvPunto3D _P0, igvPunto3D _r, igvPunto3D 
 	znear = _znear;
 	zfar = _zfar;
     radio = 1;
+    rotacionPan=-90;
+    rotaciontilt = 0;
+    rotacionOrbitalV=0;
+    rotacionOrbitalH=0;
 }
 
 void igvCamara::set(tipoCamara _tipo, igvPunto3D _P0, igvPunto3D _r, igvPunto3D _V,
@@ -98,4 +105,46 @@ void igvCamara::roll(double angulo) {
     V.set(x,y,0);
     aplicar();
 
+}
+
+
+void igvCamara::pan(double recorrido) {
+    rotacionPan += recorrido;
+    float anguloRadianes = (rotacionPan *3.14)/180;
+    double dist = (new Utils())->normalized(P0[0] - r[0], P0[1] - r[1], P0[2] - r[2]);
+
+    float x = dist * cos(anguloRadianes);
+
+    r.set(x,r[1],r[2]);
+    aplicar();
+}
+
+void igvCamara::tilt(double recorrido) {
+    rotaciontilt+=recorrido;
+    float anguloRadianes = (rotaciontilt *3.14)/180;
+    double dist = (new Utils())->normalized(P0[0] - r[0], P0[1] - r[1], P0[2] - r[2]);
+
+    float y = dist * sin(anguloRadianes);
+    std::cout<<rotaciontilt<<std::endl;
+    r.set(r[0],y,r[2]);
+    aplicar();
+}
+
+
+void igvCamara::orbit(double recorridoH, double recorridoV) {
+    rotacionOrbitalH += recorridoH;
+    float anguloRadianes = (rotacionOrbitalH *3.14)/180;
+    //double dist = (new Utils())->normalized(P0[0] - r[0], P0[1] - r[1], P0[2] - r[2]);
+    float y = 1 * sin(anguloRadianes);
+    float x = 1 * cos(anguloRadianes);
+    P0.set(x,0,y);
+
+   /* rotacionOrbitalV += recorridoV;
+    float anguloRadianes2 = (rotacionOrbitalV *3.14)/180;
+    double dist2 = (new Utils())->normalized(P0[0] - r[0], P0[1] - r[1], P0[2] - r[2]);
+    float y2 = dist * sin(anguloRadianes);
+    float x2 = dist * cos(anguloRadianes);
+*/
+
+    aplicar();
 }

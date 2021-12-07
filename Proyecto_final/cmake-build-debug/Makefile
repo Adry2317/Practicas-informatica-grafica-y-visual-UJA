@@ -128,6 +128,30 @@ Practica3b_IGV/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica3b_IGV.dir\build.make CMakeFiles/Practica3b_IGV.dir/build
 .PHONY : Practica3b_IGV/fast
 
+Utils.obj: Utils.cpp.obj
+.PHONY : Utils.obj
+
+# target to build an object file
+Utils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica3b_IGV.dir\build.make CMakeFiles/Practica3b_IGV.dir/Utils.cpp.obj
+.PHONY : Utils.cpp.obj
+
+Utils.i: Utils.cpp.i
+.PHONY : Utils.i
+
+# target to preprocess a source file
+Utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica3b_IGV.dir\build.make CMakeFiles/Practica3b_IGV.dir/Utils.cpp.i
+.PHONY : Utils.cpp.i
+
+Utils.s: Utils.cpp.s
+.PHONY : Utils.s
+
+# target to generate assembly for a file
+Utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica3b_IGV.dir\build.make CMakeFiles/Practica3b_IGV.dir/Utils.cpp.s
+.PHONY : Utils.cpp.s
+
 igvCamara.obj: igvCamara.cpp.obj
 .PHONY : igvCamara.obj
 
@@ -257,6 +281,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Practica3b_IGV
+	@echo ... Utils.obj
+	@echo ... Utils.i
+	@echo ... Utils.s
 	@echo ... igvCamara.obj
 	@echo ... igvCamara.i
 	@echo ... igvCamara.s

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/Utils.cpp" "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/Utils.cpp.obj"
   "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvCamara.cpp" "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvCamara.cpp.obj"
   "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvEscena3D.cpp" "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvEscena3D.cpp.obj"
   "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvInterfaz.cpp" "C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/cmake-build-debug/CMakeFiles/Practica3b_IGV.dir/igvInterfaz.cpp.obj"

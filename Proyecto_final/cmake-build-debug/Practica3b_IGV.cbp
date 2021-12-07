@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/Utils.cpp">
+			<Option target="Practica3b_IGV"/>
+		</Unit>
+		<Unit filename="C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/Utils.h">
+			<Option target="Practica3b_IGV"/>
+		</Unit>
 		<Unit filename="C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvCamara.cpp">
 			<Option target="Practica3b_IGV"/>
 		</Unit>

@@ -308,6 +308,16 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
         case 'r':
             interfaz.camara.movimientoActivado = roll;
             break;
+        case 'x':
+            interfaz.camara.movimientoActivado = pan;
+            break;
+
+        case 'X':
+            interfaz.camara.movimientoActivado = tilt;
+            break;
+        case 'm':
+            interfaz.camara.movimientoActivado = orbit;
+            break;
 
 	case 27: // tecla de escape para SALIR
 		exit(1);
@@ -452,7 +462,17 @@ void igvInterfaz::set_glutSpecialKeys(int key, int x, int y) {
             switch (interfaz.camara.movimientoActivado) {
                 case roll:
                     interfaz.camara.roll(-5);
-                break;
+                    break;
+
+                case pan:
+                    interfaz.camara.pan(-5);
+                    break;
+                case tilt:
+                    interfaz.camara.tilt(-5);
+                    break;
+                case orbit:
+                    interfaz.camara.orbit(-5,0);
+                    break;
             }
         break;
 
@@ -460,6 +480,36 @@ void igvInterfaz::set_glutSpecialKeys(int key, int x, int y) {
             switch (interfaz.camara.movimientoActivado) {
                 case roll:
                     interfaz.camara.roll(5);
+                    break;
+
+                case pan:
+                    interfaz.camara.pan(5);
+                    break;
+                case tilt:
+                    interfaz.camara.tilt(5);
+                    break;
+                case orbit:
+                    interfaz.camara.orbit(5,0);
+                    break;
+            }
+            break;
+        case GLUT_KEY_UP:
+            switch (interfaz.camara.movimientoActivado) {
+                case tilt:
+                    interfaz.camara.tilt(-5);
+                    break;
+                case orbit:
+                    interfaz.camara.orbit(0,-5);
+                    break;
+            }
+            break;
+        case GLUT_KEY_DOWN:
+            switch (interfaz.camara.movimientoActivado) {
+                case tilt:
+                    interfaz.camara.tilt(5);
+                    break;
+                case orbit:
+                    interfaz.camara.orbit(0,5);
                     break;
             }
             break;

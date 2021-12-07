@@ -7,8 +7,10 @@
 #include <OpenGL/glu.h>
 #else
 #include <GL/glut.h>
-#endif
 
+#endif
+#include "Utils.h"
+#include "iostream"
 #include "igvPunto3D.h"
 typedef enum {
 	panoramica,
@@ -65,7 +67,10 @@ public:
 	igvPunto3D V;
 
     int radio;
-
+    double rotacionPan;
+    double rotaciontilt;
+    double rotacionOrbitalV;
+    double  rotacionOrbitalH;
     float anguloRoll;
 
 
@@ -95,6 +100,12 @@ public:
 	void zoom(double factor); // realiza un zoom sobre la c�mara
 
     void roll(double angulo); //Realiza un movimiento roll.
+
+    void pan(double recorrido); //realiza movimiento panoramica horizontal
+
+    void tilt(double recorrido); //realiza panoramica en vertica;
+
+    void orbit(double recorridoH, double recorridoV); //Realiza orbitacion vertical y horizontal
 
 	void set_vista(tipoCamara t) { tipo = t; };
 	tipoCamara get_vista() { return tipo; };

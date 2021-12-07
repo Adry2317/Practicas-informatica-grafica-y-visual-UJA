@@ -6,37 +6,19 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvCamara.h
-GLUT/glut.h
--
-OpenGL/gl.h
--
-OpenGL/glu.h
--
-GL/glut.h
--
-igvPunto3D.h
-C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvPunto3D.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/Utils.h
+cmath
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/cmath
 
-C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvEscena3D.h
-GLUT/glut.h
--
-OpenGL/gl.h
--
-OpenGL/glu.h
--
-GL/glut.h
--
-
-C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvInterfaz.cpp
-cstdlib
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvCamara.cpp
+math.h
 -
 stdio.h
 -
-igvInterfaz.h
-C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvInterfaz.h
+igvCamara.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvCamara.h
 
-C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvInterfaz.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvCamara.h
 GLUT/glut.h
 -
 OpenGL/gl.h
@@ -45,16 +27,12 @@ OpenGL/glu.h
 -
 GL/glut.h
 -
-string
--
+Utils.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/Utils.h
 iostream
--
-vector
--
-igvEscena3D.h
-C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvEscena3D.h
-igvCamara.h
-C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvCamara.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/iostream
+igvPunto3D.h
+C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvPunto3D.h
 
 C:/Users/adry_/Documents/IGV/REPOSITORIO/Practicas-informatica-grafica-y-visual-UJA/Proyecto_final/igvPunto3D.h
 GLUT/glut.h
