@@ -318,6 +318,12 @@ void igvInterfaz::set_glutKeyboardFunc(unsigned char key, int x, int y) {
         case 'm':
             interfaz.camara.movimientoActivado = orbit;
             break;
+        case 'M':
+            interfaz.camara.movimientoActivado = dolly;
+            break;
+        case 'w':
+            interfaz.camara.movimientoActivado = boomCrane;
+            break;
 
 	case 27: // tecla de escape para SALIR
 		exit(1);
@@ -465,11 +471,12 @@ void igvInterfaz::set_glutSpecialKeys(int key, int x, int y) {
                     break;
 
                 case pan:
-                    interfaz.camara.pan(-5);
+                    interfaz.camara.pan(5);
                     break;
-                case tilt:
-                    interfaz.camara.tilt(-5);
+                case dolly:
+                    interfaz.camara.dolly(-1);
                     break;
+
                 case orbit:
                     interfaz.camara.orbit(-5,0);
                     break;
@@ -483,13 +490,17 @@ void igvInterfaz::set_glutSpecialKeys(int key, int x, int y) {
                     break;
 
                 case pan:
-                    interfaz.camara.pan(5);
+                    interfaz.camara.pan(-5);
                     break;
-                case tilt:
-                    interfaz.camara.tilt(5);
-                    break;
+
                 case orbit:
                     interfaz.camara.orbit(5,0);
+                    break;
+                case boomCrane:
+                    interfaz.camara.boomCrane(1);
+                    break;
+                case dolly:
+                        interfaz.camara.dolly(1);
                     break;
             }
             break;
@@ -499,7 +510,10 @@ void igvInterfaz::set_glutSpecialKeys(int key, int x, int y) {
                     interfaz.camara.tilt(-5);
                     break;
                 case orbit:
-                    interfaz.camara.orbit(0,-5);
+                    interfaz.camara.orbit(0,5);
+                    break;
+                case boomCrane:
+                    interfaz.camara.boomCrane(1);
                     break;
             }
             break;
@@ -509,7 +523,10 @@ void igvInterfaz::set_glutSpecialKeys(int key, int x, int y) {
                     interfaz.camara.tilt(5);
                     break;
                 case orbit:
-                    interfaz.camara.orbit(0,5);
+                    interfaz.camara.orbit(0,-5);
+                    break;
+                case boomCrane:
+                    interfaz.camara.boomCrane(-1);
                     break;
             }
             break;

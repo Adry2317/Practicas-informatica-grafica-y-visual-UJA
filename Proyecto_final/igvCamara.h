@@ -2,16 +2,17 @@
 #define __IGVCAMARA
 
 #if defined(__APPLE__) && defined(__MACH__)
-#include <GLUT/glut.h>
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
+#include <GL/gl.h>
+#include <GL/freeglut.h>
+#include <GL/glut.h>
 #else
 #include <GL/glut.h>
 
 #endif
-#include "Utils.h"
 #include "iostream"
 #include "igvPunto3D.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 typedef enum {
 	panoramica,
 	planta,
@@ -31,8 +32,7 @@ typedef enum {
     tilt, //panoramica vertical
     dolly, //movimiento horizontal
     truck, //movimiento adelante/atras
-    crane, //Movimiento  abajo
-    boom, //movimiento hacia arriba
+    boomCrane, //movimiento hacia arriba y abajo
     orbit, //movimiento orbital longitud y latitud
     roll, //rotacion camara.
 
@@ -106,6 +106,10 @@ public:
     void tilt(double recorrido); //realiza panoramica en vertica;
 
     void orbit(double recorridoH, double recorridoV); //Realiza orbitacion vertical y horizontal
+
+    void dolly(float recorrido); //Realiza movimiento horizontal.
+
+    void boomCrane(float recorridoV);
 
 	void set_vista(tipoCamara t) { tipo = t; };
 	tipoCamara get_vista() { return tipo; };

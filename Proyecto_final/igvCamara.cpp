@@ -16,7 +16,7 @@ igvCamara::igvCamara(tipoCamara _tipo, igvPunto3D _P0, igvPunto3D _r, igvPunto3D
 	P0 = _P0;
 	r = _r;
 	V = _V;
-    rotacionPan=-90;
+    rotacionPan=0;
     rotaciontilt = 0;
     rotacionOrbitalV=0;
     rotacionOrbitalH=0;
@@ -46,7 +46,7 @@ void igvCamara::set(tipoCamara _tipo, igvPunto3D _P0, igvPunto3D _r, igvPunto3D 
 	znear = _znear;
 	zfar = _zfar;
     radio = 1;
-    rotacionPan=-90;
+    rotacionPan=0;
     rotaciontilt = 0;
     rotacionOrbitalV=0;
     rotacionOrbitalH=0;
@@ -109,42 +109,84 @@ void igvCamara::roll(double angulo) {
 
 
 void igvCamara::pan(double recorrido) {
-    rotacionPan += recorrido;
-    float anguloRadianes = (rotacionPan *3.14)/180;
-    double dist = (new Utils())->normalized(P0[0] - r[0], P0[1] - r[1], P0[2] - r[2]);
 
-    float x = dist * cos(anguloRadianes);
+    //aplicamos la transformcion con un punto y la matriz identidad
+    glm::mat4 trasl = glm::translate(glm::mat4(1.0f),glm::vec3(P0[0], P0[1], P0[2]));
 
-    r.set(x,r[1],r[2]);
+    //aplicamos rotacion
+    trasl = glm::rotate(trasl,glm::radians((float)recorrido),glm::vec3(V[0],V[1],V[2]));
+    //trasladamos al origen
+    trasl = glm::translate(trasl,glm::vec3(-P0[0], -P0[1], -P0[2]));
+
+    //creamos un nuevo punto ,ultiplicando r con la matriz de transformacion
+    glm::vec4 pos = trasl * glm::vec4(r[0],r[1],r[2],1.0);
+
+    r.set(pos.x, pos.y, pos.z);
     aplicar();
+
 }
 
 void igvCamara::tilt(double recorrido) {
-    rotaciontilt+=recorrido;
-    float anguloRadianes = (rotaciontilt *3.14)/180;
-    double dist = (new Utils())->normalized(P0[0] - r[0], P0[1] - r[1], P0[2] - r[2]);
 
-    float y = dist * sin(anguloRadianes);
-    std::cout<<rotaciontilt<<std::endl;
-    r.set(r[0],y,r[2]);
+    //calculamos el vector direccion a r y P0
+    glm::vec3 direccion = glm::normalize(glm::vec3(r[0],r[1], r[2]) - glm::vec3(P0[0],P0[1],P0[2]));
+
+    //vector cruzado para rptacion en eje z
+    glm::vec3 camaraDerecha = glm::normalize(glm::cross(glm::vec3(V[0],V[1], V[2]), direccion));
+
+    //aplicamos la transformcion con un punto y la matriz identidad
+    glm::mat4 trasl = glm::translate(glm::mat4(1.0f),glm::vec3(P0[0], P0[1], P0[2]));
+
+    //aplicamos rotacion
+    trasl = glm::rotate(trasl,glm::radians((float)recorrido),camaraDerecha);
+    //trasladamos al origen
+    trasl = glm::translate(trasl,glm::vec3(-P0[0], -P0[1], -P0[2]));
+
+    //creamos un nuevo punto ,ultiplicando r con la matriz de transformacion
+    glm::vec4 pos = trasl * glm::vec4(r[0],r[1],r[2],1.0);
+
+    r.set(pos.x, pos.y, pos.z);
     aplicar();
+
 }
 
 
 void igvCamara::orbit(double recorridoH, double recorridoV) {
-    rotacionOrbitalH += recorridoH;
-    float anguloRadianes = (rotacionOrbitalH *3.14)/180;
-    //double dist = (new Utils())->normalized(P0[0] - r[0], P0[1] - r[1], P0[2] - r[2]);
-    float y = 1 * sin(anguloRadianes);
-    float x = 1 * cos(anguloRadianes);
-    P0.set(x,0,y);
 
-   /* rotacionOrbitalV += recorridoV;
-    float anguloRadianes2 = (rotacionOrbitalV *3.14)/180;
-    double dist2 = (new Utils())->normalized(P0[0] - r[0], P0[1] - r[1], P0[2] - r[2]);
-    float y2 = dist * sin(anguloRadianes);
-    float x2 = dist * cos(anguloRadianes);
-*/
+
+    glm::vec3 direccion = glm::normalize(glm::vec3(r[0],r[1], r[2]) - glm::vec3(P0[0],P0[1],P0[2]));
+
+    //vector cruzado para rptacion en eje z
+    glm::vec3 camaraDerecha = glm::normalize(glm::cross(glm::vec3(V[0],V[1], V[2]), direccion));
+
+    //Realizamos rotacion en X respecto al origen que es donde esta el objeto.
+    //Se crea la matriz de rotacion respecto de la posiccion y aplica a la posicion
+    glm::mat4 rotacion = glm::rotate(glm::mat4(1.f),glm::radians((float)recorridoH),glm::vec3(V[0],V[1],V[2]));
+    rotacion = glm::rotate(rotacion,glm::radians((float)recorridoV),camaraDerecha);
+    glm::vec4 pos = rotacion * glm::vec4 (P0[0], P0[1], P0[2], 1.0);
+
+
+    P0.set(pos.x, pos.y, pos.z);
+
 
     aplicar();
 }
+
+
+void igvCamara::dolly(float recorrido) {
+    P0.set(P0[0]+recorrido, P0[1],P0[2]);
+    r.set(r[0]+recorrido, r[1], r[2]);
+
+    aplicar();
+}
+
+void igvCamara::boomCrane(float recorridoV) {
+    P0.set(P0[0], P0[1] + recorridoV,P0[2]);
+    r.set(r[0], r[1]+recorridoV, r[2]);
+
+    aplicar();
+}
+
+
+
+

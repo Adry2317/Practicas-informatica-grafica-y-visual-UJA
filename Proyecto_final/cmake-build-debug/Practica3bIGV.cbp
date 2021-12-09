@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Practica3bIGV"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Practica3bIGV">
+				<Option output="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Practica3bIGV" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 Practica3bIGV"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Practica3bIGV/fast">
+				<Option output="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Practica3bIGV" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/OpenGL.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/GLUT.framework/Headers"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 Practica3bIGV/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/igvCamara.cpp">
+			<Option target="Practica3bIGV"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/igvCamara.h">
+			<Option target="Practica3bIGV"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/igvEscena3D.cpp">
+			<Option target="Practica3bIGV"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/igvEscena3D.h">
+			<Option target="Practica3bIGV"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/igvInterfaz.cpp">
+			<Option target="Practica3bIGV"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/igvInterfaz.h">
+			<Option target="Practica3bIGV"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/igvPunto3D.cpp">
+			<Option target="Practica3bIGV"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/igvPunto3D.h">
+			<Option target="Practica3bIGV"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/pr3b.cpp">
+			<Option target="Practica3bIGV"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/../../../../../usr/local/lib/cmake/glew/CopyImportedTargetProperties.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/../../../../../usr/local/lib/cmake/glew/glew-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/../../../../../usr/local/lib/cmake/glew/glew-targets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/../../../../../usr/local/lib/cmake/glew/glew-targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/../../../../../usr/local/lib/cmake/glfw3/glfw3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/../../../../../usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/../../../../../usr/local/lib/cmake/glfw3/glfw3Targets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/Volumes/Data/Practicas/Practicas_IGV_2122/Proyecto_final/../../../../../usr/local/lib/cmake/glfw3/glfw3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glfw3\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
